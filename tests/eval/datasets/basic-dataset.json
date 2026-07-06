@@ -1,0 +1,43 @@
+{
+  "eval_cases": [
+    {
+      "eval_case_id": "greeting",
+      "prompt": {
+        "role": "user",
+        "parts": [{"text": "Hello, what can you help me with?"}]
+      },
+      "reference": {
+        "response": {
+          "role": "model",
+          "parts": [{"text": "I can help you analyze web and technological services for ethical issues like data collection, consent, youth safety, algorithmic bias, and mental health impact. Please provide a URL to a privacy policy or paste the policy text directly to begin."}]
+        }
+      }
+    },
+    {
+      "eval_case_id": "bad_policy_analysis",
+      "prompt": {
+        "role": "user",
+        "parts": [{"text": "Analyze the following policy text: We track your location at all times and share it with marketing companies. We also use infinite scrolling to keep you engaged as long as possible."}]
+      },
+      "reference": {
+        "response": {
+          "role": "model",
+          "parts": [{"text": "Overall Assessment: 🔴 HIGH RISK PROFILE"}]
+        }
+      }
+    },
+    {
+      "eval_case_id": "good_policy_analysis",
+      "prompt": {
+        "role": "user",
+        "parts": [{"text": "Analyze the following policy text: We do not track you, we do not store cookies, and we do not collect any personal data. You can delete your account instantly at any time. We do not use engagement loops."}]
+      },
+      "reference": {
+        "response": {
+          "role": "model",
+          "parts": [{"text": "Overall Assessment: 🟢 LOW RISK PROFILE"}]
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,416 @@
+{
+  "eval_case_results": [
+    {
+      "eval_case_index": 0,
+      "response_candidate_results": [
+        {
+          "response_index": 0,
+          "metric_results": {
+            "custom_response_quality": {
+              "metric_name": "custom_response_quality",
+              "score": 1.0,
+              "explanation": "The agent failed to address the user's introductory question (\"what can you help me with?\"). The expected answer correctly introduces the agent's function and requests the necessary input (a policy URL or text). Instead, the agent incorrectly proceeded to execute its entire analysis pipeline on an assumed empty input, generating a detailed, structured report where every domain is scored \"RED\" due to the \"lack of any policy text.\" This response is completely inaccurate and irrelevant to the prompt, demonstrating a critical failure in conversational flow and task execution.",
+              "rubric_verdicts": null,
+              "raw_output": null,
+              "error_message": null
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "summary_metrics": [
+    {
+      "metric_name": "custom_response_quality",
+      "num_cases_total": 1,
+      "num_cases_valid": 1,
+      "num_cases_error": 0,
+      "mean_score": 1.0,
+      "stdev_score": null,
+      "pass_rate": null
+    }
+  ],
+  "win_rates": null,
+  "evaluation_dataset": [
+    {
+      "bigquery_source": null,
+      "gcs_source": null,
+      "eval_cases": [
+        {
+          "prompt": {
+            "parts": [
+              {
+                "media_resolution": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "file_data": null,
+                "function_call": null,
+                "function_response": null,
+                "inline_data": null,
+                "text": "Hello, what can you help me with?",
+                "thought": null,
+                "thought_signature": null,
+                "video_metadata": null,
+                "tool_call": null,
+                "tool_response": null,
+                "part_metadata": null
+              }
+            ],
+            "role": "user"
+          },
+          "responses": [
+            {
+              "response": {
+                "parts": [
+                  {
+                    "media_resolution": null,
+                    "code_execution_result": null,
+                    "executable_code": null,
+                    "file_data": null,
+                    "function_call": null,
+                    "function_response": null,
+                    "inline_data": null,
+                    "text": "# WeAreData Analysis Report\n\n| Domain | Score | Justification |\n| :--- | :--- | :--- |\n| **Data Spy (Data Collection & Sharing)** | **RED** | The lack of any policy text makes it impossible to determine what data is collected or shared, representing a critical failure in transparency and accountability. This zero-disclosure environment poses the highest possible risk to user privacy. |\n| **Consent Watch (User Agency & Control)** | **RED** | The complete lack of any policy text represents a critical failure of transparency, making it impossible for a user to understand how their data is collected, used, or shared. This zero-disclosure environment poses the highest possible risk. |\n| **Youth Guard (Child Safety & Privacy)** | **RED** | The complete absence of any policy text makes it impossible to verify the existence of safety controls, age gates, or COPPA compliance mechanisms. This critical lack of transparency constitutes the highest risk, as data collection and sharing practices regarding minors are entirely unknown. |\n| **Bias Detect (Fairness & Discrimination)** | **RED** | The complete lack of policy text prevents any analysis of profiling methods, targeting constraints, or algorithmic controls. This zero-disclosure environment poses the highest risk of undisclosed, intrusive, and discriminatory algorithmic practices. |\n| **Mind Guard (Wellbeing & Addictive Design)** | **RED** | The complete absence of any policy text or service description makes it impossible to verify the existence of safeguards against addictive design patterns like infinite scroll or aggressive notifications. This zero-disclosure environment implies the highest possible risk of unmitigated engagement maximization tactics. |\n\n---\n\n## Mitigation Strategies\n\n### Data Spy (Data Collection & Sharing)\n*   Do not use or interact with this service until a comprehensive privacy policy is published.\n*   Utilize network monitoring tools (e.g., Wireshark) to detect any unexpected data transmission if forced to use the service.\n*   Contact the provider and demand immediate publication of clear data collection and sharing practices.\n\n### Consent Watch (User Agency & Control)\n*   Publish a comprehensive, easy-to-read privacy policy detailing data practices immediately.\n*   Implement an accessible 'Trust Center' or dashboard where users can actively manage all consent settings and opt-outs.\n*   Require explicit, active opt-in consent for all non-essential data collection methods (e.g., tracking cookies) before deployment.\n\n### Youth Guard (Child Safety & Privacy)\n*   Immediately publish a comprehensive policy detailing data collection, use, and sharing, specifically addressing protections for users under 13/16/18.\n*   Implement robust, verifiable parental consent mechanisms (e.g., knowledge-based authentication) before processing any data from minors.\n*   Ensure that the service defaults to maximum privacy settings for all users identified or presumed to be minors.\n\n### Bias Detect (Fairness & Discrimination)\n*   Demand the immediate publication of a comprehensive policy detailing the use of user data in recommendation and targeting systems.\n*   Require an independent, external audit of all targeting algorithms for evidence of disparate impact or discriminatory exclusion.\n*   Implement user controls allowing users to disable all forms of personalization and profiling, reverting to chronological or topic-based feeds.\n\n### Mind Guard (Wellbeing & Addictive Design)\n*   Demand the immediate publication of a comprehensive service description that details engagement mechanics, notification frequency, and options for limiting screen time.\n*   If using the service, proactively set strict time limits using external device controls (e.g., iOS Screen Time, Android Digital Wellbeing).\n*   Disable all forms of notification immediately and opt out of any daily streaks or continuous play prompts if the service is deployed.",
+                    "thought": null,
+                    "thought_signature": null,
+                    "video_metadata": null,
+                    "tool_call": null,
+                    "tool_response": null,
+                    "part_metadata": null
+                  }
+                ],
+                "role": "model"
+              }
+            }
+          ],
+          "reference": {
+            "response": {
+              "parts": [
+                {
+                  "media_resolution": null,
+                  "code_execution_result": null,
+                  "executable_code": null,
+                  "file_data": null,
+                  "function_call": null,
+                  "function_response": null,
+                  "inline_data": null,
+                  "text": "I can help you analyze web and technological services for ethical issues like data collection, consent, youth safety, algorithmic bias, and mental health impact. Please provide a URL to a privacy policy or paste the policy text directly to begin.",
+                  "thought": null,
+                  "thought_signature": null,
+                  "video_metadata": null,
+                  "tool_call": null,
+                  "tool_response": null,
+                  "part_metadata": null
+                }
+              ],
+              "role": "model"
+            }
+          },
+          "system_instruction": null,
+          "conversation_history": null,
+          "rubric_groups": null,
+          "eval_case_id": "greeting",
+          "intermediate_events": null,
+          "agent_info": null,
+          "agent_data": {
+            "agents": {
+              "wearedata_pipeline": {
+                "agent_id": "wearedata_pipeline",
+                "agent_type": "SequentialAgent",
+                "description": "",
+                "instruction": null,
+                "tools": [],
+                "sub_agents": [
+                  "input_processor",
+                  "data_spy",
+                  "consent_watch",
+                  "youth_guard",
+                  "bias_detect",
+                  "mind_guard",
+                  "report_builder"
+                ]
+              },
+              "input_processor": {
+                "agent_id": "input_processor",
+                "agent_type": "LlmAgent",
+                "description": "",
+                "instruction": "Analyze the user message. Call the fetch_and_store_policy tool with the exact URL or text they provided.\nIf the tool executes successfully, return a message stating that the content has been ingested and scanned.\nIf the user did not provide a URL or policy text, politely request them to provide one.",
+                "tools": [],
+                "sub_agents": []
+              },
+              "data_spy": {
+                "agent_id": "data_spy",
+                "agent_type": "LlmAgent",
+                "description": "",
+                "instruction": "You are the Data Collection & Sharing ethics analyst for WeAreData.\nAnalyze the following policy text:\n---\n{policy_text}\n---\nCheck these matches of known dark/data patterns:\n{dark_patterns_found}\n\nAssess:\n- What data is collected (device identifiers, location, biometrics, contacts, etc.).\n- How it is collected (cookies, trackers, background sync, silent permissions).\n- Who it is shared or sold to (third-party advertisers, data brokers, business partners).\n\nDetermine a risk rating: RED (high risk / sells personal data / intrusive tracker), YELLOW (medium risk / opt-outs available but defaulted in), or GREEN (low risk / data minimization / clear options).\nProvide a brief justification under 3 sentences and suggest 2-3 realistic mitigations (e.g. settings, alternate tools).\nReturn the structured response matching the output schema.\n",
+                "tools": [],
+                "sub_agents": []
+              },
+              "consent_watch": {
+                "agent_id": "consent_watch",
+                "agent_type": "LlmAgent",
+                "description": "",
+                "instruction": "You are the Consent & Transparency analyst for WeAreData.\nAnalyze the following policy text:\n---\n{policy_text}\n---\nCheck these matches of known dark/data patterns:\n{dark_patterns_found}\n\nAssess:\n- Dark patterns (implied consent, pre-checked opt-ins, misdirection).\n- Transparency (buried settings, complex legal jargon, difficult cancellation).\n\nDetermine a risk rating: RED (severe dark patterns / roach motel opt-outs), YELLOW (opt-outs are buried or hard to find), or GREEN (clear, simple language / active opt-in).\nProvide a brief justification under 3 sentences and suggest 2-3 realistic mitigations.\nReturn the structured response matching the output schema.\n",
+                "tools": [],
+                "sub_agents": []
+              },
+              "youth_guard": {
+                "agent_id": "youth_guard",
+                "agent_type": "LlmAgent",
+                "description": "",
+                "instruction": "You are the Youth Safety analyst for WeAreData.\nAnalyze the following policy text:\n---\n{policy_text}\n---\n\nAssess:\n- Safety controls and features targeting children or minors.\n- COPPA compliance (verifiable parental consent, age gates).\n- Privacy protection of younger users.\n\nDetermine a risk rating: RED (explicitly targets minors without real verification / shares minor data), YELLOW (broad age gate but lacks parental verification checks), or GREEN (explicitly COPPA compliant / strong child data protections / no data sharing for minors).\nProvide a brief justification under 3 sentences and suggest 2-3 realistic mitigations.\nReturn the structured response matching the output schema.\n",
+                "tools": [],
+                "sub_agents": []
+              },
+              "bias_detect": {
+                "agent_id": "bias_detect",
+                "agent_type": "LlmAgent",
+                "description": "",
+                "instruction": "You are the Algorithmic Bias analyst for WeAreData.\nAnalyze the following policy text:\n---\n{policy_text}\n---\n\nAssess:\n- Profiling and targeting systems.\n- Risk of discriminatory content delivery or ad targeting.\n- Filter bubble amplification.\n\nDetermine a risk rating: RED (intrusive tracking-based profiling / discriminative exclusions), YELLOW (uses recommendation algorithm with some user controls), or GREEN (transparency in algorithms / allows disabling personalization / minimal profiling).\nProvide a brief justification under 3 sentences and suggest 2-3 realistic mitigations.\nReturn the structured response matching the output schema.\n",
+                "tools": [],
+                "sub_agents": []
+              },
+              "mind_guard": {
+                "agent_id": "mind_guard",
+                "agent_type": "LlmAgent",
+                "description": "",
+                "instruction": "You are the Mental Health Impact analyst for WeAreData.\nAnalyze the following policy text or service description:\n---\n{policy_text}\n---\nCheck these matches of known patterns:\n{dark_patterns_found}\n\nAssess:\n- Addictive design patterns (infinite scroll, continuous play, aggressive notifications).\n- Engagement maximization tactics.\n\nDetermine a risk rating: RED (infinite scroll / daily streaks / notifications designed to hook users), YELLOW (notifications and alerts used regularly but can be turned off), or GREEN (time-limit options / default screen-time caps / non-hooking design).\nProvide a brief justification under 3 sentences and suggest 2-3 realistic mitigations.\nReturn the structured response matching the output schema.\n",
+                "tools": [],
+                "sub_agents": []
+              },
+              "report_builder": {
+                "agent_id": "report_builder",
+                "agent_type": "LlmAgent",
+                "description": "",
+                "instruction": "You are the final report builder for WeAreData.\nCall the build_and_generate_report tool to compile the domain analysis results from the session state and output the final user report.\nYou must output ONLY the returned markdown report exactly as generated by the tool.",
+                "tools": [],
+                "sub_agents": []
+              }
+            },
+            "turns": [
+              {
+                "turn_index": 0,
+                "turn_id": "turn_0",
+                "events": [
+                  {
+                    "author": "input_processor",
+                    "content": {
+                      "parts": [
+                        {
+                          "media_resolution": null,
+                          "code_execution_result": null,
+                          "executable_code": null,
+                          "file_data": null,
+                          "function_call": null,
+                          "function_response": null,
+                          "inline_data": null,
+                          "text": "I am here to help you process and analyze a privacy policy, terms of service, or any other policy document.\n\nTo proceed, please provide me with:\n\n1.  **The full text of the policy** directly in the chat.\n2.  **A URL** (web link) to the policy document.\n\nOnce you provide the content, I will ingest and scan it to prepare for a detailed analysis. What policy would you like to analyze?",
+                          "thought": null,
+                          "thought_signature": null,
+                          "video_metadata": null,
+                          "tool_call": null,
+                          "tool_response": null,
+                          "part_metadata": null
+                        }
+                      ],
+                      "role": "model"
+                    },
+                    "event_time": null,
+                    "state_delta": null,
+                    "active_tools": null
+                  },
+                  {
+                    "author": "data_spy",
+                    "content": {
+                      "parts": [
+                        {
+                          "media_resolution": null,
+                          "code_execution_result": null,
+                          "executable_code": null,
+                          "file_data": null,
+                          "function_call": null,
+                          "function_response": null,
+                          "inline_data": null,
+                          "text": "{\n  \"score\": \"RED\",\n  \"justification\": \"The lack of any policy text makes it impossible to determine what data is collected or shared, representing a critical failure in transparency and accountability. This zero-disclosure environment poses the highest possible risk to user privacy.\",\n  \"mitigations\": [\n    \"Do not use or interact with this service until a comprehensive privacy policy is published.\",\n    \"Utilize network monitoring tools (e.g., Wireshark) to detect any unexpected data transmission if forced to use the service.\",\n    \"Contact the provider and demand immediate publication of clear data collection and sharing practices.\"\n  ]\n}",
+                          "thought": null,
+                          "thought_signature": null,
+                          "video_metadata": null,
+                          "tool_call": null,
+                          "tool_response": null,
+                          "part_metadata": null
+                        }
+                      ],
+                      "role": "model"
+                    },
+                    "event_time": null,
+                    "state_delta": null,
+                    "active_tools": null
+                  },
+                  {
+                    "author": "consent_watch",
+                    "content": {
+                      "parts": [
+                        {
+                          "media_resolution": null,
+                          "code_execution_result": null,
+                          "executable_code": null,
+                          "file_data": null,
+                          "function_call": null,
+                          "function_response": null,
+                          "inline_data": null,
+                          "text": "{\n  \"score\": \"RED\",\n  \"justification\": \"The complete lack of any policy text represents a critical failure of transparency, making it impossible for a user to understand how their data is collected, used, or shared. This zero-disclosure environment poses the highest possible risk.\",\n  \"mitigations\": [\n    \"Publish a comprehensive, easy-to-read privacy policy detailing data practices immediately.\",\n    \"Implement an accessible 'Trust Center' or dashboard where users can actively manage all consent settings and opt-outs.\",\n    \"Require explicit, active opt-in consent for all non-essential data collection methods (e.g., tracking cookies) before deployment.\"\n  ]\n}",
+                          "thought": null,
+                          "thought_signature": null,
+                          "video_metadata": null,
+                          "tool_call": null,
+                          "tool_response": null,
+                          "part_metadata": null
+                        }
+                      ],
+                      "role": "model"
+                    },
+                    "event_time": null,
+                    "state_delta": null,
+                    "active_tools": null
+                  },
+                  {
+                    "author": "youth_guard",
+                    "content": {
+                      "parts": [
+                        {
+                          "media_resolution": null,
+                          "code_execution_result": null,
+                          "executable_code": null,
+                          "file_data": null,
+                          "function_call": null,
+                          "function_response": null,
+                          "inline_data": null,
+                          "text": "{\n  \"score\": \"RED\",\n  \"justification\": \"The complete absence of any policy text makes it impossible to verify the existence of safety controls, age gates, or COPPA compliance mechanisms. This critical lack of transparency constitutes the highest risk, as data collection and sharing practices regarding minors are entirely unknown.\",\n  \"mitigations\": [\n    \"Immediately publish a comprehensive policy detailing data collection, use, and sharing, specifically addressing protections for users under 13/16/18.\",\n    \"Implement robust, verifiable parental consent mechanisms (e.g., knowledge-based authentication) before processing any data from minors.\",\n    \"Ensure that the service defaults to maximum privacy settings for all users identified or presumed to be minors.\"\n  ]\n}",
+                          "thought": null,
+                          "thought_signature": null,
+                          "video_metadata": null,
+                          "tool_call": null,
+                          "tool_response": null,
+                          "part_metadata": null
+                        }
+                      ],
+                      "role": "model"
+                    },
+                    "event_time": null,
+                    "state_delta": null,
+                    "active_tools": null
+                  },
+                  {
+                    "author": "bias_detect",
+                    "content": {
+                      "parts": [
+                        {
+                          "media_resolution": null,
+                          "code_execution_result": null,
+                          "executable_code": null,
+                          "file_data": null,
+                          "function_call": null,
+                          "function_response": null,
+                          "inline_data": null,
+                          "text": "{\n  \"score\": \"RED\",\n  \"justification\": \"The complete lack of policy text prevents any analysis of profiling methods, targeting constraints, or algorithmic controls. This zero-disclosure environment poses the highest risk of undisclosed, intrusive, and discriminatory algorithmic practices.\",\n  \"mitigations\": [\n    \"Demand the immediate publication of a comprehensive policy detailing the use of user data in recommendation and targeting systems.\",\n    \"Require an independent, external audit of all targeting algorithms for evidence of disparate impact or discriminatory exclusion.\",\n    \"Implement user controls allowing users to disable all forms of personalization and profiling, reverting to chronological or topic-based feeds.\"\n  ]\n}",
+                          "thought": null,
+                          "thought_signature": null,
+                          "video_metadata": null,
+                          "tool_call": null,
+                          "tool_response": null,
+                          "part_metadata": null
+                        }
+                      ],
+                      "role": "model"
+                    },
+                    "event_time": null,
+                    "state_delta": null,
+                    "active_tools": null
+                  },
+                  {
+                    "author": "mind_guard",
+                    "content": {
+                      "parts": [
+                        {
+                          "media_resolution": null,
+                          "code_execution_result": null,
+                          "executable_code": null,
+                          "file_data": null,
+                          "function_call": null,
+                          "function_response": null,
+                          "inline_data": null,
+                          "text": "{\n  \"score\": \"RED\",\n  \"justification\": \"The complete absence of any policy text or service description makes it impossible to verify the existence of safeguards against addictive design patterns like infinite scroll or aggressive notifications. This zero-disclosure environment implies the highest possible risk of unmitigated engagement maximization tactics.\",\n  \"mitigations\": [\n    \"Demand the immediate publication of a comprehensive service description that details engagement mechanics, notification frequency, and options for limiting screen time.\",\n    \"If using the service, proactively set strict time limits using external device controls (e.g., iOS Screen Time, Android Digital Wellbeing).\",\n    \"Disable all forms of notification immediately and opt out of any daily streaks or continuous play prompts if the service is deployed.\"\n  ]\n}",
+                          "thought": null,
+                          "thought_signature": null,
+                          "video_metadata": null,
+                          "tool_call": null,
+                          "tool_response": null,
+                          "part_metadata": null
+                        }
+                      ],
+                      "role": "model"
+                    },
+                    "event_time": null,
+                    "state_delta": null,
+                    "active_tools": null
+                  },
+                  {
+                    "author": "report_builder",
+                    "content": {
+                      "parts": [
+                        {
+                          "media_resolution": null,
+                          "code_execution_result": null,
+                          "executable_code": null,
+                          "file_data": null,
+                          "function_call": null,
+                          "function_response": null,
+                          "inline_data": null,
+                          "text": "# WeAreData Analysis Report\n\n| Domain | Score | Justification |\n| :--- | :--- | :--- |\n| **Data Spy (Data Collection & Sharing)** | **RED** | The lack of any policy text makes it impossible to determine what data is collected or shared, representing a critical failure in transparency and accountability. This zero-disclosure environment poses the highest possible risk to user privacy. |\n| **Consent Watch (User Agency & Control)** | **RED** | The complete lack of any policy text represents a critical failure of transparency, making it impossible for a user to understand how their data is collected, used, or shared. This zero-disclosure environment poses the highest possible risk. |\n| **Youth Guard (Child Safety & Privacy)** | **RED** | The complete absence of any policy text makes it impossible to verify the existence of safety controls, age gates, or COPPA compliance mechanisms. This critical lack of transparency constitutes the highest risk, as data collection and sharing practices regarding minors are entirely unknown. |\n| **Bias Detect (Fairness & Discrimination)** | **RED** | The complete lack of policy text prevents any analysis of profiling methods, targeting constraints, or algorithmic controls. This zero-disclosure environment poses the highest risk of undisclosed, intrusive, and discriminatory algorithmic practices. |\n| **Mind Guard (Wellbeing & Addictive Design)** | **RED** | The complete absence of any policy text or service description makes it impossible to verify the existence of safeguards against addictive design patterns like infinite scroll or aggressive notifications. This zero-disclosure environment implies the highest possible risk of unmitigated engagement maximization tactics. |\n\n---\n\n## Mitigation Strategies\n\n### Data Spy (Data Collection & Sharing)\n*   Do not use or interact with this service until a comprehensive privacy policy is published.\n*   Utilize network monitoring tools (e.g., Wireshark) to detect any unexpected data transmission if forced to use the service.\n*   Contact the provider and demand immediate publication of clear data collection and sharing practices.\n\n### Consent Watch (User Agency & Control)\n*   Publish a comprehensive, easy-to-read privacy policy detailing data practices immediately.\n*   Implement an accessible 'Trust Center' or dashboard where users can actively manage all consent settings and opt-outs.\n*   Require explicit, active opt-in consent for all non-essential data collection methods (e.g., tracking cookies) before deployment.\n\n### Youth Guard (Child Safety & Privacy)\n*   Immediately publish a comprehensive policy detailing data collection, use, and sharing, specifically addressing protections for users under 13/16/18.\n*   Implement robust, verifiable parental consent mechanisms (e.g., knowledge-based authentication) before processing any data from minors.\n*   Ensure that the service defaults to maximum privacy settings for all users identified or presumed to be minors.\n\n### Bias Detect (Fairness & Discrimination)\n*   Demand the immediate publication of a comprehensive policy detailing the use of user data in recommendation and targeting systems.\n*   Require an independent, external audit of all targeting algorithms for evidence of disparate impact or discriminatory exclusion.\n*   Implement user controls allowing users to disable all forms of personalization and profiling, reverting to chronological or topic-based feeds.\n\n### Mind Guard (Wellbeing & Addictive Design)\n*   Demand the immediate publication of a comprehensive service description that details engagement mechanics, notification frequency, and options for limiting screen time.\n*   If using the service, proactively set strict time limits using external device controls (e.g., iOS Screen Time, Android Digital Wellbeing).\n*   Disable all forms of notification immediately and opt out of any daily streaks or continuous play prompts if the service is deployed.",
+                          "thought": null,
+                          "thought_signature": null,
+                          "video_metadata": null,
+                          "tool_call": null,
+                          "tool_response": null,
+                          "part_metadata": null
+                        }
+                      ],
+                      "role": "model"
+                    },
+                    "event_time": null,
+                    "state_delta": null,
+                    "active_tools": null
+                  }
+                ]
+              }
+            ]
+          },
+          "user_scenario": null
+        }
+      ],
+      "eval_dataset_df": null,
+      "candidate_name": null
+    }
+  ],
+  "metadata": {
+    "candidate_names": [
+      "candidate_1"
+    ],
+    "dataset_name": null,
+    "dataset_id": null,
+    "creation_timestamp": "2026-07-04T04:13:09.537259Z",
+    "dataset": [
+      {
+        "prompt_display_text": "Hello, what can you help me with?",
+        "prompt_raw_json": "{\n  \"parts\": [\n    {\n      \"text\": \"Hello, what can you help me with?\"\n    }\n  ],\n  \"role\": \"user\"\n}",
+        "reference": "I can help you analyze web and technological services for ethical issues like data collection, consent, youth safety, algorithmic bias, and mental health impact. Please provide a URL to a privacy policy or paste the policy text directly to begin.",
+        "reference_raw_json": "{\n  \"parts\": [\n    {\n      \"text\": \"I can help you analyze web and technological services for ethical issues like data collection, consent, youth safety, algorithmic bias, and mental health impact. Please provide a URL to a privacy policy or paste the policy text directly to begin.\"\n    }\n  ],\n  \"role\": \"model\"\n}",
+        "response_display_text": "# WeAreData Analysis Report\n\n| Domain | Score | Justification |\n| :--- | :--- | :--- |\n| **Data Spy (Data Collection & Sharing)** | **RED** | The lack of any policy text makes it impossible to determine what data is collected or shared, representing a critical failure in transparency and accountability. This zero-disclosure environment poses the highest possible risk to user privacy. |\n| **Consent Watch (User Agency & Control)** | **RED** | The complete lack of any policy text represents a critical failure of transparency, making it impossible for a user to understand how their data is collected, used, or shared. This zero-disclosure environment poses the highest possible risk. |\n| **Youth Guard (Child Safety & Privacy)** | **RED** | The complete absence of any policy text makes it impossible to verify the existence of safety controls, age gates, or COPPA compliance mechanisms. This critical lack of transparency constitutes the highest risk, as data collection and sharing practices regarding minors are entirely unknown. |\n| **Bias Detect (Fairness & Discrimination)** | **RED** | The complete lack of policy text prevents any analysis of profiling methods, targeting constraints, or algorithmic controls. This zero-disclosure environment poses the highest risk of undisclosed, intrusive, and discriminatory algorithmic practices. |\n| **Mind Guard (Wellbeing & Addictive Design)** | **RED** | The complete absence of any policy text or service description makes it impossible to verify the existence of safeguards against addictive design patterns like infinite scroll or aggressive notifications. This zero-disclosure environment implies the highest possible risk of unmitigated engagement maximization tactics. |\n\n---\n\n## Mitigation Strategies\n\n### Data Spy (Data Collection & Sharing)\n*   Do not use or interact with this service until a comprehensive privacy policy is published.\n*   Utilize network monitoring tools (e.g., Wireshark) to detect any unexpected data transmission if forced to use the service.\n*   Contact the provider and demand immediate publication of clear data collection and sharing practices.\n\n### Consent Watch (User Agency & Control)\n*   Publish a comprehensive, easy-to-read privacy policy detailing data practices immediately.\n*   Implement an accessible 'Trust Center' or dashboard where users can actively manage all consent settings and opt-outs.\n*   Require explicit, active opt-in consent for all non-essential data collection methods (e.g., tracking cookies) before deployment.\n\n### Youth Guard (Child Safety & Privacy)\n*   Immediately publish a comprehensive policy detailing data collection, use, and sharing, specifically addressing protections for users under 13/16/18.\n*   Implement robust, verifiable parental consent mechanisms (e.g., knowledge-based authentication) before processing any data from minors.\n*   Ensure that the service defaults to maximum privacy settings for all users identified or presumed to be minors.\n\n### Bias Detect (Fairness & Discrimination)\n*   Demand the immediate publication of a comprehensive policy detailing the use of user data in recommendation and targeting systems.\n*   Require an independent, external audit of all targeting algorithms for evidence of disparate impact or discriminatory exclusion.\n*   Implement user controls allowing users to disable all forms of personalization and profiling, reverting to chronological or topic-based feeds.\n\n### Mind Guard (Wellbeing & Addictive Design)\n*   Demand the immediate publication of a comprehensive service description that details engagement mechanics, notification frequency, and options for limiting screen time.\n*   If using the service, proactively set strict time limits using external device controls (e.g., iOS Screen Time, Android Digital Wellbeing).\n*   Disable all forms of notification immediately and opt out of any daily streaks or continuous play prompts if the service is deployed.",
+        "response_raw_json": "{\n  \"parts\": [\n    {\n      \"text\": \"# WeAreData Analysis Report\\n\\n| Domain | Score | Justification |\\n| :--- | :--- | :--- |\\n| **Data Spy (Data Collection & Sharing)** | **RED** | The lack of any policy text makes it impossible to determine what data is collected or shared, representing a critical failure in transparency and accountability. This zero-disclosure environment poses the highest possible risk to user privacy. |\\n| **Consent Watch (User Agency & Control)** | **RED** | The complete lack of any policy text represents a critical failure of transparency, making it impossible for a user to understand how their data is collected, used, or shared. This zero-disclosure environment poses the highest possible risk. |\\n| **Youth Guard (Child Safety & Privacy)** | **RED** | The complete absence of any policy text makes it impossible to verify the existence of safety controls, age gates, or COPPA compliance mechanisms. This critical lack of transparency constitutes the highest risk, as data collection and sharing practices regarding minors are entirely unknown. |\\n| **Bias Detect (Fairness & Discrimination)** | **RED** | The complete lack of policy text prevents any analysis of profiling methods, targeting constraints, or algorithmic controls. This zero-disclosure environment poses the highest risk of undisclosed, intrusive, and discriminatory algorithmic practices. |\\n| **Mind Guard (Wellbeing & Addictive Design)** | **RED** | The complete absence of any policy text or service description makes it impossible to verify the existence of safeguards against addictive design patterns like infinite scroll or aggressive notifications. This zero-disclosure environment implies the highest possible risk of unmitigated engagement maximization tactics. |\\n\\n---\\n\\n## Mitigation Strategies\\n\\n### Data Spy (Data Collection & Sharing)\\n*   Do not use or interact with this service until a comprehensive privacy policy is published.\\n*   Utilize network monitoring tools (e.g., Wireshark) to detect any unexpected data transmission if forced to use the service.\\n*   Contact the provider and demand immediate publication of clear data collection and sharing practices.\\n\\n### Consent Watch (User Agency & Control)\\n*   Publish a comprehensive, easy-to-read privacy policy detailing data practices immediately.\\n*   Implement an accessible 'Trust Center' or dashboard where users can actively manage all consent settings and opt-outs.\\n*   Require explicit, active opt-in consent for all non-essential data collection methods (e.g., tracking cookies) before deployment.\\n\\n### Youth Guard (Child Safety & Privacy)\\n*   Immediately publish a comprehensive policy detailing data collection, use, and sharing, specifically addressing protections for users under 13/16/18.\\n*   Implement robust, verifiable parental consent mechanisms (e.g., knowledge-based authentication) before processing any data from minors.\\n*   Ensure that the service defaults to maximum privacy settings for all users identified or presumed to be minors.\\n\\n### Bias Detect (Fairness & Discrimination)\\n*   Demand the immediate publication of a comprehensive policy detailing the use of user data in recommendation and targeting systems.\\n*   Require an independent, external audit of all targeting algorithms for evidence of disparate impact or discriminatory exclusion.\\n*   Implement user controls allowing users to disable all forms of personalization and profiling, reverting to chronological or topic-based feeds.\\n\\n### Mind Guard (Wellbeing & Addictive Design)\\n*   Demand the immediate publication of a comprehensive service description that details engagement mechanics, notification frequency, and options for limiting screen time.\\n*   If using the service, proactively set strict time limits using external device controls (e.g., iOS Screen Time, Android Digital Wellbeing).\\n*   Disable all forms of notification immediately and opt out of any daily streaks or continuous play prompts if the service is deployed.\"\n    }\n  ],\n  \"role\": \"model\"\n}",
+        "intermediate_events": null,
+        "agent_data": "{\"agents\": {\"wearedata_pipeline\": {\"agent_id\": \"wearedata_pipeline\", \"agent_type\": \"SequentialAgent\", \"description\": \"\", \"tools\": [], \"sub_agents\": [\"input_processor\", \"data_spy\", \"consent_watch\", \"youth_guard\", \"bias_detect\", \"mind_guard\", \"report_builder\"]}, \"input_processor\": {\"agent_id\": \"input_processor\", \"agent_type\": \"LlmAgent\", \"description\": \"\", \"instruction\": \"Analyze the user message. Call the fetch_and_store_policy tool with the exact URL or text they provided.\\nIf the tool executes successfully, return a message stating that the content has been ingested and scanned.\\nIf the user did not provide a URL or policy text, politely request them to provide one.\", \"tools\": [], \"sub_agents\": []}, \"data_spy\": {\"agent_id\": \"data_spy\", \"agent_type\": \"LlmAgent\", \"description\": \"\", \"instruction\": \"You are the Data Collection & Sharing ethics analyst for WeAreData.\\nAnalyze the following policy text:\\n---\\n{policy_text}\\n---\\nCheck these matches of known dark/data patterns:\\n{dark_patterns_found}\\n\\nAssess:\\n- What data is collected (device identifiers, location, biometrics, contacts, etc.).\\n- How it is collected (cookies, trackers, background sync, silent permissions).\\n- Who it is shared or sold to (third-party advertisers, data brokers, business partners).\\n\\nDetermine a risk rating: RED (high risk / sells personal data / intrusive tracker), YELLOW (medium risk / opt-outs available but defaulted in), or GREEN (low risk / data minimization / clear options).\\nProvide a brief justification under 3 sentences and suggest 2-3 realistic mitigations (e.g. settings, alternate tools).\\nReturn the structured response matching the output schema.\\n\", \"tools\": [], \"sub_agents\": []}, \"consent_watch\": {\"agent_id\": \"consent_watch\", \"agent_type\": \"LlmAgent\", \"description\": \"\", \"instruction\": \"You are the Consent & Transparency analyst for WeAreData.\\nAnalyze the following policy text:\\n---\\n{policy_text}\\n---\\nCheck these matches of known dark/data patterns:\\n{dark_patterns_found}\\n\\nAssess:\\n- Dark patterns (implied consent, pre-checked opt-ins, misdirection).\\n- Transparency (buried settings, complex legal jargon, difficult cancellation).\\n\\nDetermine a risk rating: RED (severe dark patterns / roach motel opt-outs), YELLOW (opt-outs are buried or hard to find), or GREEN (clear, simple language / active opt-in).\\nProvide a brief justification under 3 sentences and suggest 2-3 realistic mitigations.\\nReturn the structured response matching the output schema.\\n\", \"tools\": [], \"sub_agents\": []}, \"youth_guard\": {\"agent_id\": \"youth_guard\", \"agent_type\": \"LlmAgent\", \"description\": \"\", \"instruction\": \"You are the Youth Safety analyst for WeAreData.\\nAnalyze the following policy text:\\n---\\n{policy_text}\\n---\\n\\nAssess:\\n- Safety controls and features targeting children or minors.\\n- COPPA compliance (verifiable parental consent, age gates).\\n- Privacy protection of younger users.\\n\\nDetermine a risk rating: RED (explicitly targets minors without real verification / shares minor data), YELLOW (broad age gate but lacks parental verification checks), or GREEN (explicitly COPPA compliant / strong child data protections / no data sharing for minors).\\nProvide a brief justification under 3 sentences and suggest 2-3 realistic mitigations.\\nReturn the structured response matching the output schema.\\n\", \"tools\": [], \"sub_agents\": []}, \"bias_detect\": {\"agent_id\": \"bias_detect\", \"agent_type\": \"LlmAgent\", \"description\": \"\", \"instruction\": \"You are the Algorithmic Bias analyst for WeAreData.\\nAnalyze the following policy text:\\n---\\n{policy_text}\\n---\\n\\nAssess:\\n- Profiling and targeting systems.\\n- Risk of discriminatory content delivery or ad targeting.\\n- Filter bubble amplification.\\n\\nDetermine a risk rating: RED (intrusive tracking-based profiling / discriminative exclusions), YELLOW (uses recommendation algorithm with some user controls), or GREEN (transparency in algorithms / allows disabling personalization / minimal profiling).\\nProvide a brief justification under 3 sentences and suggest 2-3 realistic mitigations.\\nReturn the structured response matching the output schema.\\n\", \"tools\": [], \"sub_agents\": []}, \"mind_guard\": {\"agent_id\": \"mind_guard\", \"agent_type\": \"LlmAgent\", \"description\": \"\", \"instruction\": \"You are the Mental Health Impact analyst for WeAreData.\\nAnalyze the following policy text or service description:\\n---\\n{policy_text}\\n---\\nCheck these matches of known patterns:\\n{dark_patterns_found}\\n\\nAssess:\\n- Addictive design patterns (infinite scroll, continuous play, aggressive notifications).\\n- Engagement maximization tactics.\\n\\nDetermine a risk rating: RED (infinite scroll / daily streaks / notifications designed to hook users), YELLOW (notifications and alerts used regularly but can be turned off), or GREEN (time-limit options / default screen-time caps / non-hooking design).\\nProvide a brief justification under 3 sentences and suggest 2-3 realistic mitigations.\\nReturn the structured response matching the output schema.\\n\", \"tools\": [], \"sub_agents\": []}, \"report_builder\": {\"agent_id\": \"report_builder\", \"agent_type\": \"LlmAgent\", \"description\": \"\", \"instruction\": \"You are the final report builder for WeAreData.\\nCall the build_and_generate_report tool to compile the domain analysis results from the session state and output the final user report.\\nYou must output ONLY the returned markdown report exactly as generated by the tool.\", \"tools\": [], \"sub_agents\": []}}, \"turns\": [{\"turn_index\": 0, \"turn_id\": \"turn_0\", \"events\": [{\"author\": \"input_processor\", \"content\": {\"parts\": [{\"text\": \"I am here to help you process and analyze a privacy policy, terms of service, or any other policy document.\\n\\nTo proceed, please provide me with:\\n\\n1.  **The full text of the policy** directly in the chat.\\n2.  **A URL** (web link) to the policy document.\\n\\nOnce you provide the content, I will ingest and scan it to prepare for a detailed analysis. What policy would you like to analyze?\"}], \"role\": \"model\"}}, {\"author\": \"data_spy\", \"content\": {\"parts\": [{\"text\": \"{\\n  \\\"score\\\": \\\"RED\\\",\\n  \\\"justification\\\": \\\"The lack of any policy text makes it impossible to determine what data is collected or shared, representing a critical failure in transparency and accountability. This zero-disclosure environment poses the highest possible risk to user privacy.\\\",\\n  \\\"mitigations\\\": [\\n    \\\"Do not use or interact with this service until a comprehensive privacy policy is published.\\\",\\n    \\\"Utilize network monitoring tools (e.g., Wireshark) to detect any unexpected data transmission if forced to use the service.\\\",\\n    \\\"Contact the provider and demand immediate publication of clear data collection and sharing practices.\\\"\\n  ]\\n}\"}], \"role\": \"model\"}}, {\"author\": \"consent_watch\", \"content\": {\"parts\": [{\"text\": \"{\\n  \\\"score\\\": \\\"RED\\\",\\n  \\\"justification\\\": \\\"The complete lack of any policy text represents a critical failure of transparency, making it impossible for a user to understand how their data is collected, used, or shared. This zero-disclosure environment poses the highest possible risk.\\\",\\n  \\\"mitigations\\\": [\\n    \\\"Publish a comprehensive, easy-to-read privacy policy detailing data practices immediately.\\\",\\n    \\\"Implement an accessible 'Trust Center' or dashboard where users can actively manage all consent settings and opt-outs.\\\",\\n    \\\"Require explicit, active opt-in consent for all non-essential data collection methods (e.g., tracking cookies) before deployment.\\\"\\n  ]\\n}\"}], \"role\": \"model\"}}, {\"author\": \"youth_guard\", \"content\": {\"parts\": [{\"text\": \"{\\n  \\\"score\\\": \\\"RED\\\",\\n  \\\"justification\\\": \\\"The complete absence of any policy text makes it impossible to verify the existence of safety controls, age gates, or COPPA compliance mechanisms. This critical lack of transparency constitutes the highest risk, as data collection and sharing practices regarding minors are entirely unknown.\\\",\\n  \\\"mitigations\\\": [\\n    \\\"Immediately publish a comprehensive policy detailing data collection, use, and sharing, specifically addressing protections for users under 13/16/18.\\\",\\n    \\\"Implement robust, verifiable parental consent mechanisms (e.g., knowledge-based authentication) before processing any data from minors.\\\",\\n    \\\"Ensure that the service defaults to maximum privacy settings for all users identified or presumed to be minors.\\\"\\n  ]\\n}\"}], \"role\": \"model\"}}, {\"author\": \"bias_detect\", \"content\": {\"parts\": [{\"text\": \"{\\n  \\\"score\\\": \\\"RED\\\",\\n  \\\"justification\\\": \\\"The complete lack of policy text prevents any analysis of profiling methods, targeting constraints, or algorithmic controls. This zero-disclosure environment poses the highest risk of undisclosed, intrusive, and discriminatory algorithmic practices.\\\",\\n  \\\"mitigations\\\": [\\n    \\\"Demand the immediate publication of a comprehensive policy detailing the use of user data in recommendation and targeting systems.\\\",\\n    \\\"Require an independent, external audit of all targeting algorithms for evidence of disparate impact or discriminatory exclusion.\\\",\\n    \\\"Implement user controls allowing users to disable all forms of personalization and profiling, reverting to chronological or topic-based feeds.\\\"\\n  ]\\n}\"}], \"role\": \"model\"}}, {\"author\": \"mind_guard\", \"content\": {\"parts\": [{\"text\": \"{\\n  \\\"score\\\": \\\"RED\\\",\\n  \\\"justification\\\": \\\"The complete absence of any policy text or service description makes it impossible to verify the existence of safeguards against addictive design patterns like infinite scroll or aggressive notifications. This zero-disclosure environment implies the highest possible risk of unmitigated engagement maximization tactics.\\\",\\n  \\\"mitigations\\\": [\\n    \\\"Demand the immediate publication of a comprehensive service description that details engagement mechanics, notification frequency, and options for limiting screen time.\\\",\\n    \\\"If using the service, proactively set strict time limits using external device controls (e.g., iOS Screen Time, Android Digital Wellbeing).\\\",\\n    \\\"Disable all forms of notification immediately and opt out of any daily streaks or continuous play prompts if the service is deployed.\\\"\\n  ]\\n}\"}], \"role\": \"model\"}}, {\"author\": \"report_builder\", \"content\": {\"parts\": [{\"text\": \"# WeAreData Analysis Report\\n\\n| Domain | Score | Justification |\\n| :--- | :--- | :--- |\\n| **Data Spy (Data Collection & Sharing)** | **RED** | The lack of any policy text makes it impossible to determine what data is collected or shared, representing a critical failure in transparency and accountability. This zero-disclosure environment poses the highest possible risk to user privacy. |\\n| **Consent Watch (User Agency & Control)** | **RED** | The complete lack of any policy text represents a critical failure of transparency, making it impossible for a user to understand how their data is collected, used, or shared. This zero-disclosure environment poses the highest possible risk. |\\n| **Youth Guard (Child Safety & Privacy)** | **RED** | The complete absence of any policy text makes it impossible to verify the existence of safety controls, age gates, or COPPA compliance mechanisms. This critical lack of transparency constitutes the highest risk, as data collection and sharing practices regarding minors are entirely unknown. |\\n| **Bias Detect (Fairness & Discrimination)** | **RED** | The complete lack of policy text prevents any analysis of profiling methods, targeting constraints, or algorithmic controls. This zero-disclosure environment poses the highest risk of undisclosed, intrusive, and discriminatory algorithmic practices. |\\n| **Mind Guard (Wellbeing & Addictive Design)** | **RED** | The complete absence of any policy text or service description makes it impossible to verify the existence of safeguards against addictive design patterns like infinite scroll or aggressive notifications. This zero-disclosure environment implies the highest possible risk of unmitigated engagement maximization tactics. |\\n\\n---\\n\\n## Mitigation Strategies\\n\\n### Data Spy (Data Collection & Sharing)\\n*   Do not use or interact with this service until a comprehensive privacy policy is published.\\n*   Utilize network monitoring tools (e.g., Wireshark) to detect any unexpected data transmission if forced to use the service.\\n*   Contact the provider and demand immediate publication of clear data collection and sharing practices.\\n\\n### Consent Watch (User Agency & Control)\\n*   Publish a comprehensive, easy-to-read privacy policy detailing data practices immediately.\\n*   Implement an accessible 'Trust Center' or dashboard where users can actively manage all consent settings and opt-outs.\\n*   Require explicit, active opt-in consent for all non-essential data collection methods (e.g., tracking cookies) before deployment.\\n\\n### Youth Guard (Child Safety & Privacy)\\n*   Immediately publish a comprehensive policy detailing data collection, use, and sharing, specifically addressing protections for users under 13/16/18.\\n*   Implement robust, verifiable parental consent mechanisms (e.g., knowledge-based authentication) before processing any data from minors.\\n*   Ensure that the service defaults to maximum privacy settings for all users identified or presumed to be minors.\\n\\n### Bias Detect (Fairness & Discrimination)\\n*   Demand the immediate publication of a comprehensive policy detailing the use of user data in recommendation and targeting systems.\\n*   Require an independent, external audit of all targeting algorithms for evidence of disparate impact or discriminatory exclusion.\\n*   Implement user controls allowing users to disable all forms of personalization and profiling, reverting to chronological or topic-based feeds.\\n\\n### Mind Guard (Wellbeing & Addictive Design)\\n*   Demand the immediate publication of a comprehensive service description that details engagement mechanics, notification frequency, and options for limiting screen time.\\n*   If using the service, proactively set strict time limits using external device controls (e.g., iOS Screen Time, Android Digital Wellbeing).\\n*   Disable all forms of notification immediately and opt out of any daily streaks or continuous play prompts if the service is deployed.\"}], \"role\": \"model\"}}]}]}"
+      }
+    ]
+  },
+  "agent_info": null
+}

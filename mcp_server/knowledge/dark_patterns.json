@@ -1,0 +1,29 @@
+{
+  "patterns": [
+    {
+      "pattern_name": "Implied Consent (Sneak into Basket / Default Opt-In)",
+      "keywords": ["by continuing to use", "default settings", "pre-selected", "agree by scrolling"],
+      "ethical_concern": "Violates active consent principles by assuming permission based on passive actions."
+    },
+    {
+      "pattern_name": "Buried Opt-Out (Obstacle Course / Roach Motel)",
+      "keywords": ["opt-out by writing to", "settings menu", "account cancellation requires calling", "three business days", "buried settings"],
+      "ethical_concern": "Creates asymmetric difficulty, making it easy to sign up but hard to opt out or delete data."
+    },
+    {
+      "pattern_name": "Data Maximization (Misdirection / Forced Sharing)",
+      "keywords": ["require location to", "allow access to contacts", "synchronize address book", "necessary for personalization"],
+      "ethical_concern": "Forces the collection of non-essential personal information as a condition of service."
+    },
+    {
+      "pattern_name": "Addictive Design (Dopamine Loops)",
+      "keywords": ["infinite scroll", "never miss an update", "suggested for you", "keep scrolling", "autoplay next video"],
+      "ethical_concern": "Manipulates user attention and psychological triggers to maximize time-on-app at the expense of mental health."
+    },
+    {
+      "pattern_name": "Exclusionary / Biased Targeting",
+      "keywords": ["advertiser profiles", "credit score targeting", "exclude users based on zip code", "demographic exclusions"],
+      "ethical_concern": "Enables discriminatory ad delivery or content filtering based on sensitive personal characteristics."
+    }
+  ]
+}

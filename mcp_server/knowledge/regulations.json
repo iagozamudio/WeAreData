@@ -1,0 +1,64 @@
+{
+  "GDPR": {
+    "Article_5": {
+      "title": "Principles relating to processing of personal data",
+      "summary": "Requires that personal data be processed lawfully, fairly, and transparently. Includes purpose limitation, data minimization, accuracy, storage limitation, integrity, confidentiality, and accountability."
+    },
+    "Article_6": {
+      "title": "Lawfulness of processing",
+      "summary": "Processing is only lawful if at least one condition applies: consent, contract performance, legal obligation, vital interests, public task, or legitimate interests."
+    },
+    "Article_7": {
+      "title": "Conditions for consent",
+      "summary": "The controller must be able to demonstrate that the user consented. Consent requests must be clear, intelligible, and easily accessible. The user has the right to withdraw consent at any time, and it must be as easy to withdraw as to give."
+    },
+    "Article_12": {
+      "title": "Transparent information, communication and modalities",
+      "summary": "Information must be provided in a concise, transparent, intelligible and easily accessible form, using clear and plain language, in particular for any information addressed specifically to a child."
+    },
+    "Article_17": {
+      "title": "Right to erasure ('right to be forgotten')",
+      "summary": "The data subject has the right to obtain from the controller the erasure of personal data concerning him or her without undue delay under certain grounds (e.g., data no longer necessary, consent withdrawn)."
+    },
+    "Article_22": {
+      "title": "Automated individual decision-making, including profiling",
+      "summary": "The data subject has the right not to be subject to a decision based solely on automated processing, including profiling, which produces legal effects concerning him or her or similarly significantly affects him or her."
+    },
+    "Article_25": {
+      "title": "Data protection by design and by default",
+      "summary": "Requires controllers to implement appropriate technical and organisational measures both at the time of determination of processing means and processing itself. By default, only personal data necessary for each specific purpose should be processed."
+    }
+  },
+  "COPPA": {
+    "Section_312.3": {
+      "title": "Requirements for operators",
+      "summary": "An operator of a website or online service directed to children under 13 must: (a) provide notice on the website/service of what information they collect, how they use it, and disclosure practices; (b) obtain verifiable parental consent prior to collection; (c) provide a reasonable means for parents to review and delete child's personal info."
+    },
+    "Section_312.4": {
+      "title": "Notice",
+      "summary": "Requires prominent link to privacy policy on home page and at each area where personal info is collected from children. Direct notice to parents is also required."
+    },
+    "Section_312.5": {
+      "title": "Verifiable parental consent",
+      "summary": "Operators must make reasonable efforts, in light of available technology, to ensure that a parent of a child receives notice of the operator's personal information collection, use, and disclosure practices, and authorizes those practices prior to any collection."
+    },
+    "Section_312.10": {
+      "title": "Data retention and deletion",
+      "summary": "Personal information collected from a child must be retained only for as long as is reasonably necessary to fulfill the purpose for which the information was collected. It must be deleted using reasonable measures to protect against unauthorized access."
+    }
+  },
+  "CCPA": {
+    "Section_1798.100": {
+      "title": "General Rights & Disclosures",
+      "summary": "Consumers have the right to know what personal information is collected, collected sources, commercial purpose, and third parties shared. Consumers have the right to request deletion of their personal information."
+    },
+    "Section_1798.120": {
+      "title": "Right to opt-out of sale or sharing",
+      "summary": "Consumers have the right, at any time, to direct a business that sells or shares personal information about the consumer to third parties not to sell or share the consumer's personal information. Business must provide a 'Do Not Sell or Share My Personal Information' link."
+    },
+    "Section_1798.125": {
+      "title": "Right to non-discrimination",
+      "summary": "A business shall not discriminate against a consumer because the consumer exercised any of the consumer's rights under this title, including by denying goods/services, charging different prices, or providing a different level or quality of goods/services."
+    }
+  }
+}

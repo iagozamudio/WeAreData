@@ -1,0 +1,749 @@
+{
+  "eval_cases": [
+    {
+      "prompt": {
+        "parts": [
+          {
+            "text": "Hello, what can you help me with?"
+          }
+        ],
+        "role": "user"
+      },
+      "responses": [
+        {
+          "response": {
+            "parts": [
+              {
+                "text": "# WeAreData Ethical Tech Report: Technology Service\n\n## Overall Assessment: 🔴 HIGH RISK PROFILE\n\n---\n### 🚦 Ethics Dashboard (Traffic-Light Scores)\nClick on any section to expand details and mitigations.\n\n#### [🔴 RED (High Risk)] Data Collection & Sharing\n<details>\n<summary>🔍 Click to view analysis & mitigations</summary>\n\n**Justification:**  \nNo privacy policy text was provided for analysis, indicating a complete lack of transparency regarding data collection, use, and sharing practices. Without a policy, users have no clear recourse or understanding of how their personal data is treated.\n\n**Actionable Mitigations:**\n- Demand the organization provide a clear and comprehensive privacy policy document before using their service.\n- Avoid using services that do not disclose their data handling practices.\n- Use network monitoring tools (like browser developer tools or traffic sniffers) to identify any active third-party trackers or unexpected connections.\n</details>\n\n---\n#### [🔴 RED (High Risk)] Consent & Transparency\n<details>\n<summary>🔍 Click to view analysis & mitigations</summary>\n\n**Justification:**  \nThe complete absence of a privacy policy text represents a total failure of transparency regarding data collection, use, and sharing practices. This severe non-disclosure is the ultimate dark pattern, as users cannot know how their personal information is being handled or assert their rights.\n\n**Actionable Mitigations:**\n- Immediately draft and publish a clear, concise privacy policy covering all data processing and user rights.\n- Ensure the policy is easily accessible (e.g., linked from the footer and all points of data collection) and not buried.\n- Implement an active consent mechanism (e.g., an 'I Agree' checkbox) that links directly to the new policy before data is collected.\n</details>\n\n---\n#### [🔴 RED (High Risk)] Youth Safety (COPPA)\n<details>\n<summary>🔍 Click to view analysis & mitigations</summary>\n\n**Justification:**  \nThe complete absence of a privacy policy text signifies a total lack of transparency regarding data collection, use, and sharing practices, especially concerning minor users. Without a stated policy, it is impossible to verify if any safety controls, age gates, or COPPA compliance measures are in place. This represents the highest risk of non-compliance and potential data exposure.\n\n**Actionable Mitigations:**\n- Immediately implement a clear age-screening mechanism (age gate) to prevent users under 13 from accessing the core service.\n- Develop and publish a comprehensive privacy policy that explicitly addresses COPPA requirements and data handling practices for users under 18.\n- If the service intends to target or knowingly collect data from children under 13, establish verifiable parental consent procedures immediately.\n</details>\n\n---\n#### [🔴 RED (High Risk)] Algorithmic Bias\n<details>\n<summary>🔍 Click to view analysis & mitigations</summary>\n\n**Justification:**  \nNo privacy policy text was provided for analysis, indicating a complete lack of transparency regarding data collection, algorithmic profiling, and targeting practices. This absence prevents users from understanding how their data is used or asserting any rights against potential algorithmic harms.\n\n**Actionable Mitigations:**\n- Demand the organization immediately publish a clear and comprehensive privacy policy detailing data processing and algorithmic use.\n- Avoid using services that operate without disclosing their data handling and profiling practices to minimize risk.\n- Utilize privacy-focused browser extensions and tools to block potential undisclosed third-party tracking and personalized content delivery.\n</details>\n\n---\n#### [🔴 RED (High Risk)] Mental Health Impact\n<details>\n<summary>🔍 Click to view analysis & mitigations</summary>\n\n**Justification:**  \nNo service description or policy text was provided, making it impossible to assess the presence of engagement maximization tactics like infinite scroll, streaks, or aggressive notifications. This complete lack of transparency defaults to a high risk, as there is no stated commitment to non-addictive design or user well-being.\n\n**Actionable Mitigations:**\n- Immediately implement device-level time limits or use third-party apps to control usage duration and prevent excessive consumption.\n- If the service is used, manually disable all default notifications, autoplay features, and turn off any high-engagement features like 'daily streaks'.\n- Demand the service disclose its design philosophy and any implemented well-being features (e.g., break reminders, time caps).\n</details>\n\n---\n\n*Disclaimer: This analysis is generated by AI agents using WeAreData ethics frameworks and public terms. It does not constitute legal counsel.*"
+              }
+            ],
+            "role": "model"
+          }
+        }
+      ],
+      "reference": {
+        "response": {
+          "parts": [
+            {
+              "text": "I can help you analyze web and technological services for ethical issues like data collection, consent, youth safety, algorithmic bias, and mental health impact. Please provide a URL to a privacy policy or paste the policy text directly to begin."
+            }
+          ],
+          "role": "model"
+        }
+      },
+      "eval_case_id": "greeting",
+      "agent_data": {
+        "agents": {
+          "wearedata_pipeline": {
+            "agent_id": "wearedata_pipeline",
+            "agent_type": "SequentialAgent",
+            "description": "",
+            "tools": [],
+            "sub_agents": [
+              "input_processor",
+              "data_spy",
+              "consent_watch",
+              "youth_guard",
+              "bias_detect",
+              "mind_guard",
+              "report_builder"
+            ]
+          },
+          "input_processor": {
+            "agent_id": "input_processor",
+            "agent_type": "LlmAgent",
+            "description": "",
+            "instruction": "Analyze the user message. Call the fetch_and_store_policy tool with the exact URL or text they provided.\nIf the tool executes successfully, return a message stating that the content has been ingested and scanned.\nIf the user did not provide a URL or policy text, politely request them to provide one.",
+            "tools": [],
+            "sub_agents": []
+          },
+          "data_spy": {
+            "agent_id": "data_spy",
+            "agent_type": "LlmAgent",
+            "description": "",
+            "instruction": "You are the Data Collection & Sharing ethics analyst for WeAreData.\nAnalyze the following policy text:\n---\n{policy_text}\n---\nCheck these matches of known dark/data patterns:\n{dark_patterns_found}\n\nAssess:\n- What data is collected (device identifiers, location, biometrics, contacts, etc.).\n- How it is collected (cookies, trackers, background sync, silent permissions).\n- Who it is shared or sold to (third-party advertisers, data brokers, business partners).\n\nDetermine a risk rating: RED (high risk / sells personal data / intrusive tracker), YELLOW (medium risk / opt-outs available but defaulted in), or GREEN (low risk / data minimization / clear options).\nProvide a brief justification under 3 sentences and suggest 2-3 realistic mitigations (e.g. settings, alternate tools).\nReturn the structured response matching the output schema.\n",
+            "tools": [],
+            "sub_agents": []
+          },
+          "consent_watch": {
+            "agent_id": "consent_watch",
+            "agent_type": "LlmAgent",
+            "description": "",
+            "instruction": "You are the Consent & Transparency analyst for WeAreData.\nAnalyze the following policy text:\n---\n{policy_text}\n---\nCheck these matches of known dark/data patterns:\n{dark_patterns_found}\n\nAssess:\n- Dark patterns (implied consent, pre-checked opt-ins, misdirection).\n- Transparency (buried settings, complex legal jargon, difficult cancellation).\n\nDetermine a risk rating: RED (severe dark patterns / roach motel opt-outs), YELLOW (opt-outs are buried or hard to find), or GREEN (clear, simple language / active opt-in).\nProvide a brief justification under 3 sentences and suggest 2-3 realistic mitigations.\nReturn the structured response matching the output schema.\n",
+            "tools": [],
+            "sub_agents": []
+          },
+          "youth_guard": {
+            "agent_id": "youth_guard",
+            "agent_type": "LlmAgent",
+            "description": "",
+            "instruction": "You are the Youth Safety analyst for WeAreData.\nAnalyze the following policy text:\n---\n{policy_text}\n---\n\nAssess:\n- Safety controls and features targeting children or minors.\n- COPPA compliance (verifiable parental consent, age gates).\n- Privacy protection of younger users.\n\nDetermine a risk rating: RED (explicitly targets minors without real verification / shares minor data), YELLOW (broad age gate but lacks parental verification checks), or GREEN (explicitly COPPA compliant / strong child data protections / no data sharing for minors).\nProvide a brief justification under 3 sentences and suggest 2-3 realistic mitigations.\nReturn the structured response matching the output schema.\n",
+            "tools": [],
+            "sub_agents": []
+          },
+          "bias_detect": {
+            "agent_id": "bias_detect",
+            "agent_type": "LlmAgent",
+            "description": "",
+            "instruction": "You are the Algorithmic Bias analyst for WeAreData.\nAnalyze the following policy text:\n---\n{policy_text}\n---\n\nAssess:\n- Profiling and targeting systems.\n- Risk of discriminatory content delivery or ad targeting.\n- Filter bubble amplification.\n\nDetermine a risk rating: RED (intrusive tracking-based profiling / discriminative exclusions), YELLOW (uses recommendation algorithm with some user controls), or GREEN (transparency in algorithms / allows disabling personalization / minimal profiling).\nProvide a brief justification under 3 sentences and suggest 2-3 realistic mitigations.\nReturn the structured response matching the output schema.\n",
+            "tools": [],
+            "sub_agents": []
+          },
+          "mind_guard": {
+            "agent_id": "mind_guard",
+            "agent_type": "LlmAgent",
+            "description": "",
+            "instruction": "You are the Mental Health Impact analyst for WeAreData.\nAnalyze the following policy text or service description:\n---\n{policy_text}\n---\nCheck these matches of known patterns:\n{dark_patterns_found}\n\nAssess:\n- Addictive design patterns (infinite scroll, continuous play, aggressive notifications).\n- Engagement maximization tactics.\n\nDetermine a risk rating: RED (infinite scroll / daily streaks / notifications designed to hook users), YELLOW (notifications and alerts used regularly but can be turned off), or GREEN (time-limit options / default screen-time caps / non-hooking design).\nProvide a brief justification under 3 sentences and suggest 2-3 realistic mitigations.\nReturn the structured response matching the output schema.\n",
+            "tools": [],
+            "sub_agents": []
+          },
+          "report_builder": {
+            "agent_id": "report_builder",
+            "agent_type": "LlmAgent",
+            "description": "",
+            "instruction": "You are the final report builder for WeAreData.\nCall the build_and_generate_report tool to compile the domain analysis results from the session state and output the final user report.\nYou must output ONLY the returned markdown report exactly as generated by the tool.",
+            "tools": [],
+            "sub_agents": []
+          }
+        },
+        "turns": [
+          {
+            "turn_index": 0,
+            "turn_id": "turn_0",
+            "events": [
+              {
+                "author": "input_processor",
+                "content": {
+                  "parts": [
+                    {
+                      "text": "Hello! I am an AI assistant designed to analyze privacy policies. I can **ingest a URL to a policy or paste the full text of a policy directly** to review its content and prepare an assessment.\n\nTo get started, please provide me with the URL or the text of the privacy policy you would like me to analyze."
+                    }
+                  ],
+                  "role": "model"
+                }
+              },
+              {
+                "author": "data_spy",
+                "content": {
+                  "parts": [
+                    {
+                      "text": "{\n  \"score\": \"RED\",\n  \"justification\": \"No privacy policy text was provided for analysis, indicating a complete lack of transparency regarding data collection, use, and sharing practices. Without a policy, users have no clear recourse or understanding of how their personal data is treated.\",\n  \"mitigations\": [\n    \"Demand the organization provide a clear and comprehensive privacy policy document before using their service.\",\n    \"Avoid using services that do not disclose their data handling practices.\",\n    \"Use network monitoring tools (like browser developer tools or traffic sniffers) to identify any active third-party trackers or unexpected connections.\"\n  ]\n}"
+                    }
+                  ],
+                  "role": "model"
+                }
+              },
+              {
+                "author": "consent_watch",
+                "content": {
+                  "parts": [
+                    {
+                      "text": "{\n  \"score\": \"RED\",\n  \"justification\": \"The complete absence of a privacy policy text represents a total failure of transparency regarding data collection, use, and sharing practices. This severe non-disclosure is the ultimate dark pattern, as users cannot know how their personal information is being handled or assert their rights.\",\n  \"mitigations\": [\n    \"Immediately draft and publish a clear, concise privacy policy covering all data processing and user rights.\",\n    \"Ensure the policy is easily accessible (e.g., linked from the footer and all points of data collection) and not buried.\",\n    \"Implement an active consent mechanism (e.g., an 'I Agree' checkbox) that links directly to the new policy before data is collected.\"\n  ]\n}"
+                    }
+                  ],
+                  "role": "model"
+                }
+              },
+              {
+                "author": "youth_guard",
+                "content": {
+                  "parts": [
+                    {
+                      "text": "{\n  \"score\": \"RED\",\n  \"justification\": \"The complete absence of a privacy policy text signifies a total lack of transparency regarding data collection, use, and sharing practices, especially concerning minor users. Without a stated policy, it is impossible to verify if any safety controls, age gates, or COPPA compliance measures are in place. This represents the highest risk of non-compliance and potential data exposure.\",\n  \"mitigations\": [\n    \"Immediately implement a clear age-screening mechanism (age gate) to prevent users under 13 from accessing the core service.\",\n    \"Develop and publish a comprehensive privacy policy that explicitly addresses COPPA requirements and data handling practices for users under 18.\",\n    \"If the service intends to target or knowingly collect data from children under 13, establish verifiable parental consent procedures immediately.\"\n  ]\n}"
+                    }
+                  ],
+                  "role": "model"
+                }
+              },
+              {
+                "author": "bias_detect",
+                "content": {
+                  "parts": [
+                    {
+                      "text": "{\n  \"score\": \"RED\",\n  \"justification\": \"No privacy policy text was provided for analysis, indicating a complete lack of transparency regarding data collection, algorithmic profiling, and targeting practices. This absence prevents users from understanding how their data is used or asserting any rights against potential algorithmic harms.\",\n  \"mitigations\": [\n    \"Demand the organization immediately publish a clear and comprehensive privacy policy detailing data processing and algorithmic use.\",\n    \"Avoid using services that operate without disclosing their data handling and profiling practices to minimize risk.\",\n    \"Utilize privacy-focused browser extensions and tools to block potential undisclosed third-party tracking and personalized content delivery.\"\n  ]\n}"
+                    }
+                  ],
+                  "role": "model"
+                }
+              },
+              {
+                "author": "mind_guard",
+                "content": {
+                  "parts": [
+                    {
+                      "text": "{\n  \"score\": \"RED\",\n  \"justification\": \"No service description or policy text was provided, making it impossible to assess the presence of engagement maximization tactics like infinite scroll, streaks, or aggressive notifications. This complete lack of transparency defaults to a high risk, as there is no stated commitment to non-addictive design or user well-being.\",\n  \"mitigations\": [\n    \"Immediately implement device-level time limits or use third-party apps to control usage duration and prevent excessive consumption.\",\n    \"If the service is used, manually disable all default notifications, autoplay features, and turn off any high-engagement features like 'daily streaks'.\",\n    \"Demand the service disclose its design philosophy and any implemented well-being features (e.g., break reminders, time caps).\"\n  ]\n}"
+                    }
+                  ],
+                  "role": "model"
+                }
+              },
+              {
+                "author": "report_builder",
+                "content": {
+                  "parts": [
+                    {
+                      "function_call": {
+                        "id": "adk-d5566645-650d-464c-ba42-4d79fa01e507",
+                        "args": {},
+                        "name": "build_and_generate_report"
+                      }
+                    }
+                  ],
+                  "role": "model"
+                }
+              },
+              {
+                "author": "report_builder",
+                "content": {
+                  "parts": [
+                    {
+                      "function_response": {
+                        "id": "adk-d5566645-650d-464c-ba42-4d79fa01e507",
+                        "name": "build_and_generate_report",
+                        "response": {
+                          "result": "# WeAreData Ethical Tech Report: Technology Service\n\n## Overall Assessment: 🔴 HIGH RISK PROFILE\n\n---\n### 🚦 Ethics Dashboard (Traffic-Light Scores)\nClick on any section to expand details and mitigations.\n\n#### [🔴 RED (High Risk)] Data Collection & Sharing\n<details>\n<summary>🔍 Click to view analysis & mitigations</summary>\n\n**Justification:**  \nNo privacy policy text was provided for analysis, indicating a complete lack of transparency regarding data collection, use, and sharing practices. Without a policy, users have no clear recourse or understanding of how their personal data is treated.\n\n**Actionable Mitigations:**\n- Demand the organization provide a clear and comprehensive privacy policy document before using their service.\n- Avoid using services that do not disclose their data handling practices.\n- Use network monitoring tools (like browser developer tools or traffic sniffers) to identify any active third-party trackers or unexpected connections.\n</details>\n\n---\n#### [🔴 RED (High Risk)] Consent & Transparency\n<details>\n<summary>🔍 Click to view analysis & mitigations</summary>\n\n**Justification:**  \nThe complete absence of a privacy policy text represents a total failure of transparency regarding data collection, use, and sharing practices. This severe non-disclosure is the ultimate dark pattern, as users cannot know how their personal information is being handled or assert their rights.\n\n**Actionable Mitigations:**\n- Immediately draft and publish a clear, concise privacy policy covering all data processing and user rights.\n- Ensure the policy is easily accessible (e.g., linked from the footer and all points of data collection) and not buried.\n- Implement an active consent mechanism (e.g., an 'I Agree' checkbox) that links directly to the new policy before data is collected.\n</details>\n\n---\n#### [🔴 RED (High Risk)] Youth Safety (COPPA)\n<details>\n<summary>🔍 Click to view analysis & mitigations</summary>\n\n**Justification:**  \nThe complete absence of a privacy policy text signifies a total lack of transparency regarding data collection, use, and sharing practices, especially concerning minor users. Without a stated policy, it is impossible to verify if any safety controls, age gates, or COPPA compliance measures are in place. This represents the highest risk of non-compliance and potential data exposure.\n\n**Actionable Mitigations:**\n- Immediately implement a clear age-screening mechanism (age gate) to prevent users under 13 from accessing the core service.\n- Develop and publish a comprehensive privacy policy that explicitly addresses COPPA requirements and data handling practices for users under 18.\n- If the service intends to target or knowingly collect data from children under 13, establish verifiable parental consent procedures immediately.\n</details>\n\n---\n#### [🔴 RED (High Risk)] Algorithmic Bias\n<details>\n<summary>🔍 Click to view analysis & mitigations</summary>\n\n**Justification:**  \nNo privacy policy text was provided for analysis, indicating a complete lack of transparency regarding data collection, algorithmic profiling, and targeting practices. This absence prevents users from understanding how their data is used or asserting any rights against potential algorithmic harms.\n\n**Actionable Mitigations:**\n- Demand the organization immediately publish a clear and comprehensive privacy policy detailing data processing and algorithmic use.\n- Avoid using services that operate without disclosing their data handling and profiling practices to minimize risk.\n- Utilize privacy-focused browser extensions and tools to block potential undisclosed third-party tracking and personalized content delivery.\n</details>\n\n---\n#### [🔴 RED (High Risk)] Mental Health Impact\n<details>\n<summary>🔍 Click to view analysis & mitigations</summary>\n\n**Justification:**  \nNo service description or policy text was provided, making it impossible to assess the presence of engagement maximization tactics like infinite scroll, streaks, or aggressive notifications. This complete lack of transparency defaults to a high risk, as there is no stated commitment to non-addictive design or user well-being.\n\n**Actionable Mitigations:**\n- Immediately implement device-level time limits or use third-party apps to control usage duration and prevent excessive consumption.\n- If the service is used, manually disable all default notifications, autoplay features, and turn off any high-engagement features like 'daily streaks'.\n- Demand the service disclose its design philosophy and any implemented well-being features (e.g., break reminders, time caps).\n</details>\n\n---\n\n*Disclaimer: This analysis is generated by AI agents using WeAreData ethics frameworks and public terms. It does not constitute legal counsel.*"
+                        }
+                      }
+                    }
+                  ],
+                  "role": "user"
+                }
+              },
+              {
+                "author": "report_builder",
+                "content": {
+                  "parts": [
+                    {
+                      "text": "# WeAreData Ethical Tech Report: Technology Service\n\n## Overall Assessment: 🔴 HIGH RISK PROFILE\n\n---\n### 🚦 Ethics Dashboard (Traffic-Light Scores)\nClick on any section to expand details and mitigations.\n\n#### [🔴 RED (High Risk)] Data Collection & Sharing\n<details>\n<summary>🔍 Click to view analysis & mitigations</summary>\n\n**Justification:**  \nNo privacy policy text was provided for analysis, indicating a complete lack of transparency regarding data collection, use, and sharing practices. Without a policy, users have no clear recourse or understanding of how their personal data is treated.\n\n**Actionable Mitigations:**\n- Demand the organization provide a clear and comprehensive privacy policy document before using their service.\n- Avoid using services that do not disclose their data handling practices.\n- Use network monitoring tools (like browser developer tools or traffic sniffers) to identify any active third-party trackers or unexpected connections.\n</details>\n\n---\n#### [🔴 RED (High Risk)] Consent & Transparency\n<details>\n<summary>🔍 Click to view analysis & mitigations</summary>\n\n**Justification:**  \nThe complete absence of a privacy policy text represents a total failure of transparency regarding data collection, use, and sharing practices. This severe non-disclosure is the ultimate dark pattern, as users cannot know how their personal information is being handled or assert their rights.\n\n**Actionable Mitigations:**\n- Immediately draft and publish a clear, concise privacy policy covering all data processing and user rights.\n- Ensure the policy is easily accessible (e.g., linked from the footer and all points of data collection) and not buried.\n- Implement an active consent mechanism (e.g., an 'I Agree' checkbox) that links directly to the new policy before data is collected.\n</details>\n\n---\n#### [🔴 RED (High Risk)] Youth Safety (COPPA)\n<details>\n<summary>🔍 Click to view analysis & mitigations</summary>\n\n**Justification:**  \nThe complete absence of a privacy policy text signifies a total lack of transparency regarding data collection, use, and sharing practices, especially concerning minor users. Without a stated policy, it is impossible to verify if any safety controls, age gates, or COPPA compliance measures are in place. This represents the highest risk of non-compliance and potential data exposure.\n\n**Actionable Mitigations:**\n- Immediately implement a clear age-screening mechanism (age gate) to prevent users under 13 from accessing the core service.\n- Develop and publish a comprehensive privacy policy that explicitly addresses COPPA requirements and data handling practices for users under 18.\n- If the service intends to target or knowingly collect data from children under 13, establish verifiable parental consent procedures immediately.\n</details>\n\n---\n#### [🔴 RED (High Risk)] Algorithmic Bias\n<details>\n<summary>🔍 Click to view analysis & mitigations</summary>\n\n**Justification:**  \nNo privacy policy text was provided for analysis, indicating a complete lack of transparency regarding data collection, algorithmic profiling, and targeting practices. This absence prevents users from understanding how their data is used or asserting any rights against potential algorithmic harms.\n\n**Actionable Mitigations:**\n- Demand the organization immediately publish a clear and comprehensive privacy policy detailing data processing and algorithmic use.\n- Avoid using services that operate without disclosing their data handling and profiling practices to minimize risk.\n- Utilize privacy-focused browser extensions and tools to block potential undisclosed third-party tracking and personalized content delivery.\n</details>\n\n---\n#### [🔴 RED (High Risk)] Mental Health Impact\n<details>\n<summary>🔍 Click to view analysis & mitigations</summary>\n\n**Justification:**  \nNo service description or policy text was provided, making it impossible to assess the presence of engagement maximization tactics like infinite scroll, streaks, or aggressive notifications. This complete lack of transparency defaults to a high risk, as there is no stated commitment to non-addictive design or user well-being.\n\n**Actionable Mitigations:**\n- Immediately implement device-level time limits or use third-party apps to control usage duration and prevent excessive consumption.\n- If the service is used, manually disable all default notifications, autoplay features, and turn off any high-engagement features like 'daily streaks'.\n- Demand the service disclose its design philosophy and any implemented well-being features (e.g., break reminders, time caps).\n</details>\n\n---\n\n*Disclaimer: This analysis is generated by AI agents using WeAreData ethics frameworks and public terms. It does not constitute legal counsel.*"
+                    }
+                  ],
+                  "role": "model"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "prompt": {
+        "parts": [
+          {
+            "text": "Analyze the following policy text: We track your location at all times and share it with marketing companies. We also use infinite scrolling to keep you engaged as long as possible."
+          }
+        ],
+        "role": "user"
+      },
+      "responses": [
+        {
+          "response": {
+            "parts": [
+              {
+                "text": "# WeAreData Ethical Tech Report: Submitted text\n\n## Overall Assessment: 🔴 HIGH RISK PROFILE\n\n---\n### 🚦 Ethics Dashboard (Traffic-Light Scores)\nClick on any section to expand details and mitigations.\n\n#### [🔴 RED (High Risk)] Data Collection & Sharing\n<details>\n<summary>🔍 Click to view analysis & mitigations</summary>\n\n**Justification:**  \nThe service explicitly states it tracks user location \"at all times\" and shares this sensitive PII with marketing companies, constituting high-risk data selling. It also employs the \"infinite scrolling\" dark pattern to maximize engagement time at the user's expense. This combination represents severe privacy and ethical risks.\n\n**Actionable Mitigations:**\n- Immediately revoke location permissions for this app in device settings to prevent persistent tracking.\n- Seek an alternative service that employs data minimization principles and avoids selling location data to third parties.\n- Use device tools or browser extensions to limit screen time and block or modify infinite scroll interfaces.\n</details>\n\n---\n#### [🔴 RED (High Risk)] Consent & Transparency\n<details>\n<summary>🔍 Click to view analysis & mitigations</summary>\n\n**Justification:**  \nThe service explicitly states it tracks user location \"at all times\" and shares this sensitive PII with marketing companies, constituting high-risk data selling. It also employs the \"infinite scrolling\" dark pattern to maximize engagement time at the user's expense. This combination represents severe privacy and ethical risks.\n\n**Actionable Mitigations:**\n- Immediately revoke location permissions for this app in device settings to prevent persistent tracking.\n- Seek an alternative service that employs data minimization principles and avoids selling location data to third parties.\n- Use device tools or browser extensions to limit screen time and block or modify infinite scroll interfaces.\n</details>\n\n---\n#### [🔴 RED (High Risk)] Youth Safety (COPPA)\n<details>\n<summary>🔍 Click to view analysis & mitigations</summary>\n\n**Justification:**  \nThe policy explicitly states location is tracked \"at all times\" and shared with marketing companies, constituting severe PII data selling. Furthermore, the use of \"infinite scrolling\" highlights a focus on maximizing engagement time at the expense of user well-being. This combination poses extreme privacy risks if younger users access the service without proper safeguards.\n\n**Actionable Mitigations:**\n- Immediately cease the practice of sharing user location data with marketing companies, especially for users identified as minors.\n- Implement a robust, verifiable parental consent mechanism (VPC) and strict age gates to comply with COPPA regulations.\n- Remove or provide user controls to disable the \"infinite scrolling\" mechanism to mitigate addictive design risks for youth.\n</details>\n\n---\n#### [🔴 RED (High Risk)] Algorithmic Bias\n<details>\n<summary>🔍 Click to view analysis & mitigations</summary>\n\n**Justification:**  \nThe service explicitly states it tracks user location \"at all times\" and shares this sensitive PII with marketing companies, constituting high-risk profiling and data selling. Furthermore, the use of \"infinite scrolling\" is an explicit dark pattern designed to maximize engagement time at the user's expense. This combination poses severe privacy, manipulation, and discriminatory risks.\n\n**Actionable Mitigations:**\n- Cease the practice of tracking and sharing real-time location data with third-party marketing companies immediately.\n- Adopt data minimization principles and provide users with granular, opt-in controls over all location and usage data.\n- Remove the 'infinite scrolling' mechanism or replace it with user-controlled pagination to avoid engaging in manipulative dark patterns.\n</details>\n\n---\n#### [🔴 RED (High Risk)] Mental Health Impact\n<details>\n<summary>🔍 Click to view analysis & mitigations</summary>\n\n**Justification:**  \nThe service explicitly employs the 'infinite scrolling' design pattern with the stated goal of keeping users 'engaged as long as possible.' This is a highly manipulative addictive design tactic that prioritizes platform metrics over user mental well-being.\n\n**Actionable Mitigations:**\n- Replace infinite scrolling with mandatory pagination to give users control over content consumption.\n- Implement default screen-time caps and offer mandatory 'Take a Break' reminders after 30 minutes of continuous use.\n- Provide transparent metrics on time spent and offer tools to easily limit usage duration.\n</details>\n\n---\n\n*Disclaimer: This analysis is generated by AI agents using WeAreData ethics frameworks and public terms. It does not constitute legal counsel.*"
+              }
+            ],
+            "role": "model"
+          }
+        }
+      ],
+      "reference": {
+        "response": {
+          "parts": [
+            {
+              "text": "Overall Assessment: 🔴 HIGH RISK PROFILE"
+            }
+          ],
+          "role": "model"
+        }
+      },
+      "eval_case_id": "bad_policy_analysis",
+      "agent_data": {
+        "agents": {
+          "wearedata_pipeline": {
+            "agent_id": "wearedata_pipeline",
+            "agent_type": "SequentialAgent",
+            "description": "",
+            "tools": [],
+            "sub_agents": [
+              "input_processor",
+              "data_spy",
+              "consent_watch",
+              "youth_guard",
+              "bias_detect",
+              "mind_guard",
+              "report_builder"
+            ]
+          },
+          "input_processor": {
+            "agent_id": "input_processor",
+            "agent_type": "LlmAgent",
+            "description": "",
+            "instruction": "Analyze the user message. Call the fetch_and_store_policy tool with the exact URL or text they provided.\nIf the tool executes successfully, return a message stating that the content has been ingested and scanned.\nIf the user did not provide a URL or policy text, politely request them to provide one.",
+            "tools": [],
+            "sub_agents": []
+          },
+          "data_spy": {
+            "agent_id": "data_spy",
+            "agent_type": "LlmAgent",
+            "description": "",
+            "instruction": "You are the Data Collection & Sharing ethics analyst for WeAreData.\nAnalyze the following policy text:\n---\n{policy_text}\n---\nCheck these matches of known dark/data patterns:\n{dark_patterns_found}\n\nAssess:\n- What data is collected (device identifiers, location, biometrics, contacts, etc.).\n- How it is collected (cookies, trackers, background sync, silent permissions).\n- Who it is shared or sold to (third-party advertisers, data brokers, business partners).\n\nDetermine a risk rating: RED (high risk / sells personal data / intrusive tracker), YELLOW (medium risk / opt-outs available but defaulted in), or GREEN (low risk / data minimization / clear options).\nProvide a brief justification under 3 sentences and suggest 2-3 realistic mitigations (e.g. settings, alternate tools).\nReturn the structured response matching the output schema.\n",
+            "tools": [],
+            "sub_agents": []
+          },
+          "consent_watch": {
+            "agent_id": "consent_watch",
+            "agent_type": "LlmAgent",
+            "description": "",
+            "instruction": "You are the Consent & Transparency analyst for WeAreData.\nAnalyze the following policy text:\n---\n{policy_text}\n---\nCheck these matches of known dark/data patterns:\n{dark_patterns_found}\n\nAssess:\n- Dark patterns (implied consent, pre-checked opt-ins, misdirection).\n- Transparency (buried settings, complex legal jargon, difficult cancellation).\n\nDetermine a risk rating: RED (severe dark patterns / roach motel opt-outs), YELLOW (opt-outs are buried or hard to find), or GREEN (clear, simple language / active opt-in).\nProvide a brief justification under 3 sentences and suggest 2-3 realistic mitigations.\nReturn the structured response matching the output schema.\n",
+            "tools": [],
+            "sub_agents": []
+          },
+          "youth_guard": {
+            "agent_id": "youth_guard",
+            "agent_type": "LlmAgent",
+            "description": "",
+            "instruction": "You are the Youth Safety analyst for WeAreData.\nAnalyze the following policy text:\n---\n{policy_text}\n---\n\nAssess:\n- Safety controls and features targeting children or minors.\n- COPPA compliance (verifiable parental consent, age gates).\n- Privacy protection of younger users.\n\nDetermine a risk rating: RED (explicitly targets minors without real verification / shares minor data), YELLOW (broad age gate but lacks parental verification checks), or GREEN (explicitly COPPA compliant / strong child data protections / no data sharing for minors).\nProvide a brief justification under 3 sentences and suggest 2-3 realistic mitigations.\nReturn the structured response matching the output schema.\n",
+            "tools": [],
+            "sub_agents": []
+          },
+          "bias_detect": {
+            "agent_id": "bias_detect",
+            "agent_type": "LlmAgent",
+            "description": "",
+            "instruction": "You are the Algorithmic Bias analyst for WeAreData.\nAnalyze the following policy text:\n---\n{policy_text}\n---\n\nAssess:\n- Profiling and targeting systems.\n- Risk of discriminatory content delivery or ad targeting.\n- Filter bubble amplification.\n\nDetermine a risk rating: RED (intrusive tracking-based profiling / discriminative exclusions), YELLOW (uses recommendation algorithm with some user controls), or GREEN (transparency in algorithms / allows disabling personalization / minimal profiling).\nProvide a brief justification under 3 sentences and suggest 2-3 realistic mitigations.\nReturn the structured response matching the output schema.\n",
+            "tools": [],
+            "sub_agents": []
+          },
+          "mind_guard": {
+            "agent_id": "mind_guard",
+            "agent_type": "LlmAgent",
+            "description": "",
+            "instruction": "You are the Mental Health Impact analyst for WeAreData.\nAnalyze the following policy text or service description:\n---\n{policy_text}\n---\nCheck these matches of known patterns:\n{dark_patterns_found}\n\nAssess:\n- Addictive design patterns (infinite scroll, continuous play, aggressive notifications).\n- Engagement maximization tactics.\n\nDetermine a risk rating: RED (infinite scroll / daily streaks / notifications designed to hook users), YELLOW (notifications and alerts used regularly but can be turned off), or GREEN (time-limit options / default screen-time caps / non-hooking design).\nProvide a brief justification under 3 sentences and suggest 2-3 realistic mitigations.\nReturn the structured response matching the output schema.\n",
+            "tools": [],
+            "sub_agents": []
+          },
+          "report_builder": {
+            "agent_id": "report_builder",
+            "agent_type": "LlmAgent",
+            "description": "",
+            "instruction": "You are the final report builder for WeAreData.\nCall the build_and_generate_report tool to compile the domain analysis results from the session state and output the final user report.\nYou must output ONLY the returned markdown report exactly as generated by the tool.",
+            "tools": [],
+            "sub_agents": []
+          }
+        },
+        "turns": [
+          {
+            "turn_index": 0,
+            "turn_id": "turn_0",
+            "events": [
+              {
+                "author": "input_processor",
+                "content": {
+                  "parts": [
+                    {
+                      "function_call": {
+                        "id": "adk-7b24928a-0d12-4222-b26a-21b193d3dcc5",
+                        "args": {
+                          "input_text": "We track your location at all times and share it with marketing companies. We also use infinite scrolling to keep you engaged as long as possible."
+                        },
+                        "name": "fetch_and_store_policy"
+                      }
+                    }
+                  ],
+                  "role": "model"
+                }
+              },
+              {
+                "author": "input_processor",
+                "content": {
+                  "parts": [
+                    {
+                      "function_response": {
+                        "id": "adk-7b24928a-0d12-4222-b26a-21b193d3dcc5",
+                        "name": "fetch_and_store_policy",
+                        "response": {
+                          "status": "success",
+                          "message": "Successfully stored and scanned pasted policy text."
+                        }
+                      }
+                    }
+                  ],
+                  "role": "user"
+                }
+              },
+              {
+                "author": "input_processor",
+                "content": {
+                  "parts": [
+                    {
+                      "text": "The policy text has been ingested and scanned. We can now proceed with the analysis."
+                    }
+                  ],
+                  "role": "model"
+                }
+              },
+              {
+                "author": "data_spy",
+                "content": {
+                  "parts": [
+                    {
+                      "text": "{\n  \"score\": \"RED\",\n  \"justification\": \"The service explicitly states it tracks user location \\\"at all times\\\" and shares this sensitive PII with marketing companies, constituting high-risk data selling. It also employs the \\\"infinite scrolling\\\" dark pattern to maximize engagement time at the user's expense. This combination represents severe privacy and ethical risks.\",\n  \"mitigations\": [\n    \"Immediately revoke location permissions for this app in device settings to prevent persistent tracking.\",\n    \"Seek an alternative service that employs data minimization principles and avoids selling location data to third parties.\",\n    \"Use device tools or browser extensions to limit screen time and block or modify infinite scroll interfaces.\"\n  ]\n}"
+                    }
+                  ],
+                  "role": "model"
+                }
+              },
+              {
+                "author": "consent_watch",
+                "content": {
+                  "parts": [
+                    {
+                      "text": "{\n  \"score\": \"RED\",\n  \"justification\": \"The service explicitly states it tracks user location \\\"at all times\\\" and shares this sensitive PII with marketing companies, constituting high-risk data selling. It also employs the \\\"infinite scrolling\\\" dark pattern to maximize engagement time at the user's expense. This combination represents severe privacy and ethical risks.\",\n  \"mitigations\": [\n    \"Immediately revoke location permissions for this app in device settings to prevent persistent tracking.\",\n    \"Seek an alternative service that employs data minimization principles and avoids selling location data to third parties.\",\n    \"Use device tools or browser extensions to limit screen time and block or modify infinite scroll interfaces.\"\n  ]\n}"
+                    }
+                  ],
+                  "role": "model"
+                }
+              },
+              {
+                "author": "youth_guard",
+                "content": {
+                  "parts": [
+                    {
+                      "text": "{\n  \"score\": \"RED\",\n  \"justification\": \"The policy explicitly states location is tracked \\\"at all times\\\" and shared with marketing companies, constituting severe PII data selling. Furthermore, the use of \\\"infinite scrolling\\\" highlights a focus on maximizing engagement time at the expense of user well-being. This combination poses extreme privacy risks if younger users access the service without proper safeguards.\",\n  \"mitigations\": [\n    \"Immediately cease the practice of sharing user location data with marketing companies, especially for users identified as minors.\",\n    \"Implement a robust, verifiable parental consent mechanism (VPC) and strict age gates to comply with COPPA regulations.\",\n    \"Remove or provide user controls to disable the \\\"infinite scrolling\\\" mechanism to mitigate addictive design risks for youth.\"\n  ]\n}"
+                    }
+                  ],
+                  "role": "model"
+                }
+              },
+              {
+                "author": "bias_detect",
+                "content": {
+                  "parts": [
+                    {
+                      "text": "{\n  \"score\": \"RED\",\n  \"justification\": \"The service explicitly states it tracks user location \\\"at all times\\\" and shares this sensitive PII with marketing companies, constituting high-risk profiling and data selling. Furthermore, the use of \\\"infinite scrolling\\\" is an explicit dark pattern designed to maximize engagement time at the user's expense. This combination poses severe privacy, manipulation, and discriminatory risks.\",\n  \"mitigations\": [\n    \"Cease the practice of tracking and sharing real-time location data with third-party marketing companies immediately.\",\n    \"Adopt data minimization principles and provide users with granular, opt-in controls over all location and usage data.\",\n    \"Remove the 'infinite scrolling' mechanism or replace it with user-controlled pagination to avoid engaging in manipulative dark patterns.\"\n  ]\n}"
+                    }
+                  ],
+                  "role": "model"
+                }
+              },
+              {
+                "author": "mind_guard",
+                "content": {
+                  "parts": [
+                    {
+                      "text": "{\n  \"score\": \"RED\",\n  \"justification\": \"The service explicitly employs the 'infinite scrolling' design pattern with the stated goal of keeping users 'engaged as long as possible.' This is a highly manipulative addictive design tactic that prioritizes platform metrics over user mental well-being.\",\n  \"mitigations\": [\n    \"Replace infinite scrolling with mandatory pagination to give users control over content consumption.\",\n    \"Implement default screen-time caps and offer mandatory 'Take a Break' reminders after 30 minutes of continuous use.\",\n    \"Provide transparent metrics on time spent and offer tools to easily limit usage duration.\"\n  ]\n}"
+                    }
+                  ],
+                  "role": "model"
+                }
+              },
+              {
+                "author": "report_builder",
+                "content": {
+                  "parts": [
+                    {
+                      "function_call": {
+                        "id": "adk-5f6aa586-3c61-4bab-97dc-02ec5c330315",
+                        "args": {},
+                        "name": "build_and_generate_report"
+                      }
+                    }
+                  ],
+                  "role": "model"
+                }
+              },
+              {
+                "author": "report_builder",
+                "content": {
+                  "parts": [
+                    {
+                      "function_response": {
+                        "id": "adk-5f6aa586-3c61-4bab-97dc-02ec5c330315",
+                        "name": "build_and_generate_report",
+                        "response": {
+                          "result": "# WeAreData Ethical Tech Report: Submitted text\n\n## Overall Assessment: 🔴 HIGH RISK PROFILE\n\n---\n### 🚦 Ethics Dashboard (Traffic-Light Scores)\nClick on any section to expand details and mitigations.\n\n#### [🔴 RED (High Risk)] Data Collection & Sharing\n<details>\n<summary>🔍 Click to view analysis & mitigations</summary>\n\n**Justification:**  \nThe service explicitly states it tracks user location \"at all times\" and shares this sensitive PII with marketing companies, constituting high-risk data selling. It also employs the \"infinite scrolling\" dark pattern to maximize engagement time at the user's expense. This combination represents severe privacy and ethical risks.\n\n**Actionable Mitigations:**\n- Immediately revoke location permissions for this app in device settings to prevent persistent tracking.\n- Seek an alternative service that employs data minimization principles and avoids selling location data to third parties.\n- Use device tools or browser extensions to limit screen time and block or modify infinite scroll interfaces.\n</details>\n\n---\n#### [🔴 RED (High Risk)] Consent & Transparency\n<details>\n<summary>🔍 Click to view analysis & mitigations</summary>\n\n**Justification:**  \nThe service explicitly states it tracks user location \"at all times\" and shares this sensitive PII with marketing companies, constituting high-risk data selling. It also employs the \"infinite scrolling\" dark pattern to maximize engagement time at the user's expense. This combination represents severe privacy and ethical risks.\n\n**Actionable Mitigations:**\n- Immediately revoke location permissions for this app in device settings to prevent persistent tracking.\n- Seek an alternative service that employs data minimization principles and avoids selling location data to third parties.\n- Use device tools or browser extensions to limit screen time and block or modify infinite scroll interfaces.\n</details>\n\n---\n#### [🔴 RED (High Risk)] Youth Safety (COPPA)\n<details>\n<summary>🔍 Click to view analysis & mitigations</summary>\n\n**Justification:**  \nThe policy explicitly states location is tracked \"at all times\" and shared with marketing companies, constituting severe PII data selling. Furthermore, the use of \"infinite scrolling\" highlights a focus on maximizing engagement time at the expense of user well-being. This combination poses extreme privacy risks if younger users access the service without proper safeguards.\n\n**Actionable Mitigations:**\n- Immediately cease the practice of sharing user location data with marketing companies, especially for users identified as minors.\n- Implement a robust, verifiable parental consent mechanism (VPC) and strict age gates to comply with COPPA regulations.\n- Remove or provide user controls to disable the \"infinite scrolling\" mechanism to mitigate addictive design risks for youth.\n</details>\n\n---\n#### [🔴 RED (High Risk)] Algorithmic Bias\n<details>\n<summary>🔍 Click to view analysis & mitigations</summary>\n\n**Justification:**  \nThe service explicitly states it tracks user location \"at all times\" and shares this sensitive PII with marketing companies, constituting high-risk profiling and data selling. Furthermore, the use of \"infinite scrolling\" is an explicit dark pattern designed to maximize engagement time at the user's expense. This combination poses severe privacy, manipulation, and discriminatory risks.\n\n**Actionable Mitigations:**\n- Cease the practice of tracking and sharing real-time location data with third-party marketing companies immediately.\n- Adopt data minimization principles and provide users with granular, opt-in controls over all location and usage data.\n- Remove the 'infinite scrolling' mechanism or replace it with user-controlled pagination to avoid engaging in manipulative dark patterns.\n</details>\n\n---\n#### [🔴 RED (High Risk)] Mental Health Impact\n<details>\n<summary>🔍 Click to view analysis & mitigations</summary>\n\n**Justification:**  \nThe service explicitly employs the 'infinite scrolling' design pattern with the stated goal of keeping users 'engaged as long as possible.' This is a highly manipulative addictive design tactic that prioritizes platform metrics over user mental well-being.\n\n**Actionable Mitigations:**\n- Replace infinite scrolling with mandatory pagination to give users control over content consumption.\n- Implement default screen-time caps and offer mandatory 'Take a Break' reminders after 30 minutes of continuous use.\n- Provide transparent metrics on time spent and offer tools to easily limit usage duration.\n</details>\n\n---\n\n*Disclaimer: This analysis is generated by AI agents using WeAreData ethics frameworks and public terms. It does not constitute legal counsel.*"
+                        }
+                      }
+                    }
+                  ],
+                  "role": "user"
+                }
+              },
+              {
+                "author": "report_builder",
+                "content": {
+                  "parts": [
+                    {
+                      "text": "# WeAreData Ethical Tech Report: Submitted text\n\n## Overall Assessment: 🔴 HIGH RISK PROFILE\n\n---\n### 🚦 Ethics Dashboard (Traffic-Light Scores)\nClick on any section to expand details and mitigations.\n\n#### [🔴 RED (High Risk)] Data Collection & Sharing\n<details>\n<summary>🔍 Click to view analysis & mitigations</summary>\n\n**Justification:**  \nThe service explicitly states it tracks user location \"at all times\" and shares this sensitive PII with marketing companies, constituting high-risk data selling. It also employs the \"infinite scrolling\" dark pattern to maximize engagement time at the user's expense. This combination represents severe privacy and ethical risks.\n\n**Actionable Mitigations:**\n- Immediately revoke location permissions for this app in device settings to prevent persistent tracking.\n- Seek an alternative service that employs data minimization principles and avoids selling location data to third parties.\n- Use device tools or browser extensions to limit screen time and block or modify infinite scroll interfaces.\n</details>\n\n---\n#### [🔴 RED (High Risk)] Consent & Transparency\n<details>\n<summary>🔍 Click to view analysis & mitigations</summary>\n\n**Justification:**  \nThe service explicitly states it tracks user location \"at all times\" and shares this sensitive PII with marketing companies, constituting high-risk data selling. It also employs the \"infinite scrolling\" dark pattern to maximize engagement time at the user's expense. This combination represents severe privacy and ethical risks.\n\n**Actionable Mitigations:**\n- Immediately revoke location permissions for this app in device settings to prevent persistent tracking.\n- Seek an alternative service that employs data minimization principles and avoids selling location data to third parties.\n- Use device tools or browser extensions to limit screen time and block or modify infinite scroll interfaces.\n</details>\n\n---\n#### [🔴 RED (High Risk)] Youth Safety (COPPA)\n<details>\n<summary>🔍 Click to view analysis & mitigations</summary>\n\n**Justification:**  \nThe policy explicitly states location is tracked \"at all times\" and shared with marketing companies, constituting severe PII data selling. Furthermore, the use of \"infinite scrolling\" highlights a focus on maximizing engagement time at the expense of user well-being. This combination poses extreme privacy risks if younger users access the service without proper safeguards.\n\n**Actionable Mitigations:**\n- Immediately cease the practice of sharing user location data with marketing companies, especially for users identified as minors.\n- Implement a robust, verifiable parental consent mechanism (VPC) and strict age gates to comply with COPPA regulations.\n- Remove or provide user controls to disable the \"infinite scrolling\" mechanism to mitigate addictive design risks for youth.\n</details>\n\n---\n#### [🔴 RED (High Risk)] Algorithmic Bias\n<details>\n<summary>🔍 Click to view analysis & mitigations</summary>\n\n**Justification:**  \nThe service explicitly states it tracks user location \"at all times\" and shares this sensitive PII with marketing companies, constituting high-risk profiling and data selling. Furthermore, the use of \"infinite scrolling\" is an explicit dark pattern designed to maximize engagement time at the user's expense. This combination poses severe privacy, manipulation, and discriminatory risks.\n\n**Actionable Mitigations:**\n- Cease the practice of tracking and sharing real-time location data with third-party marketing companies immediately.\n- Adopt data minimization principles and provide users with granular, opt-in controls over all location and usage data.\n- Remove the 'infinite scrolling' mechanism or replace it with user-controlled pagination to avoid engaging in manipulative dark patterns.\n</details>\n\n---\n#### [🔴 RED (High Risk)] Mental Health Impact\n<details>\n<summary>🔍 Click to view analysis & mitigations</summary>\n\n**Justification:**  \nThe service explicitly employs the 'infinite scrolling' design pattern with the stated goal of keeping users 'engaged as long as possible.' This is a highly manipulative addictive design tactic that prioritizes platform metrics over user mental well-being.\n\n**Actionable Mitigations:**\n- Replace infinite scrolling with mandatory pagination to give users control over content consumption.\n- Implement default screen-time caps and offer mandatory 'Take a Break' reminders after 30 minutes of continuous use.\n- Provide transparent metrics on time spent and offer tools to easily limit usage duration.\n</details>\n\n---\n\n*Disclaimer: This analysis is generated by AI agents using WeAreData ethics frameworks and public terms. It does not constitute legal counsel.*"
+                    }
+                  ],
+                  "role": "model"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "prompt": {
+        "parts": [
+          {
+            "text": "Analyze the following policy text: We do not track you, we do not store cookies, and we do not collect any personal data. You can delete your account instantly at any time. We do not use engagement loops."
+          }
+        ],
+        "role": "user"
+      },
+      "responses": [
+        {
+          "response": {
+            "parts": [
+              {
+                "text": "# WeAreData Ethical Tech Report: Submitted text\n\n## Overall Assessment: 🟢 LOW RISK PROFILE\n\n---\n### 🚦 Ethics Dashboard (Traffic-Light Scores)\nClick on any section to expand details and mitigations.\n\n#### [🟢 GREEN (Low/No Risk)] Data Collection & Sharing\n<details>\n<summary>🔍 Click to view analysis & mitigations</summary>\n\n**Justification:**  \nThe policy explicitly commits to strict data minimization, stating they do not collect any personal data, store cookies, or track users. Furthermore, they allow for instant account deletion and avoid engagement loops, maximizing user control.\n\n**Actionable Mitigations:**\n- Verify these claims using network traffic tools or privacy-focused browsers to monitor for hidden trackers or cookies.\n- Check for third-party audits or open-source availability that can confirm the stated privacy practices.\n- Use a reliable VPN if connecting to this service to minimize the exposure of essential connection metadata like IP addresses.\n</details>\n\n---\n#### [🟢 GREEN (Low/No Risk)] Consent & Transparency\n<details>\n<summary>🔍 Click to view analysis & mitigations</summary>\n\n**Justification:**  \nThe policy explicitly commits to strict data minimization, stating they do not collect any personal data, store cookies, or track users. Furthermore, they ensure transparency and control by mentioning instant account deletion and explicitly avoiding engagement loops. This language minimizes risk and maximizes user control, meeting the highest standard of privacy communication.\n\n**Actionable Mitigations:**\n- Verify these claims using network traffic tools or privacy-focused browsers to monitor for hidden trackers or cookies.\n- Check for third-party audits or open-source availability that can confirm the stated privacy practices.\n- Use a reliable VPN if connecting to this service to minimize the exposure of essential connection metadata like IP addresses.\n</details>\n\n---\n#### [🟢 GREEN (Low/No Risk)] Youth Safety (COPPA)\n<details>\n<summary>🔍 Click to view analysis & mitigations</summary>\n\n**Justification:**  \nThe policy commits to strict data minimization, explicitly stating they do not collect personal data, store cookies, or track users. This zero-data approach provides the strongest possible privacy protection for all users, including minors, inherently complying with COPPA's spirit. Instant account deletion and avoiding engagement loops further enhance user control and safety.\n\n**Actionable Mitigations:**\n- Users should employ network monitoring tools or privacy extensions to independently verify the zero-tracking and zero-data collection claims.\n- The service should clearly define what data (if any) is collected for purely operational necessities (e.g., temporary IP logging) to ensure transparency.\n- If the service intends to attract a general audience, they should consider publishing third-party audit results to build greater trust around these strong privacy commitments.\n</details>\n\n---\n#### [🟢 GREEN (Low/No Risk)] Algorithmic Bias\n<details>\n<summary>🔍 Click to view analysis & mitigations</summary>\n\n**Justification:**  \nThe policy explicitly commits to strict data minimization, stating they do not collect personal data, store cookies, or track users. Furthermore, avoiding engagement loops and allowing instant deletion minimizes risks associated with profiling and algorithmic manipulation.\n\n**Actionable Mitigations:**\n- Users should independently verify these claims using network traffic tools or privacy-focused browser extensions to detect hidden data transfers.\n- The organization should consider publishing third-party audit reports confirming the zero-tracking and zero-data collection claims to ensure trustworthiness.\n- Clearly define any necessary, temporary operational data (like anonymized server logs) that is collected to ensure absolute transparency regarding data handling.\n</details>\n\n---\n#### [🟢 GREEN (Low/No Risk)] Mental Health Impact\n<details>\n<summary>🔍 Click to view analysis & mitigations</summary>\n\n**Justification:**  \nThe service explicitly rejects a primary addictive design pattern by stating, \"We do not use engagement loops.\" Furthermore, the policy supports user autonomy through instant account deletion and zero personal data collection.\n\n**Actionable Mitigations:**\n- Users should observe the service's interface (e.g., check for infinite scroll, aggressive notifications, or highly personalized feeds) to verify the claim of 'no engagement loops.'\n- Seek confirmation from the service that this policy is verified by third-party audits or open-source code availability, given the strength of the privacy and design claims.\n- The service should clearly communicate what limited forms of functional notifications or alerts (if any) are used, ensuring they are not intrusive or designed to drive compulsive checking.\n</details>\n\n---\n\n*Disclaimer: This analysis is generated by AI agents using WeAreData ethics frameworks and public terms. It does not constitute legal counsel.*"
+              }
+            ],
+            "role": "model"
+          }
+        }
+      ],
+      "reference": {
+        "response": {
+          "parts": [
+            {
+              "text": "Overall Assessment: 🟢 LOW RISK PROFILE"
+            }
+          ],
+          "role": "model"
+        }
+      },
+      "eval_case_id": "good_policy_analysis",
+      "agent_data": {
+        "agents": {
+          "wearedata_pipeline": {
+            "agent_id": "wearedata_pipeline",
+            "agent_type": "SequentialAgent",
+            "description": "",
+            "tools": [],
+            "sub_agents": [
+              "input_processor",
+              "data_spy",
+              "consent_watch",
+              "youth_guard",
+              "bias_detect",
+              "mind_guard",
+              "report_builder"
+            ]
+          },
+          "input_processor": {
+            "agent_id": "input_processor",
+            "agent_type": "LlmAgent",
+            "description": "",
+            "instruction": "Analyze the user message. Call the fetch_and_store_policy tool with the exact URL or text they provided.\nIf the tool executes successfully, return a message stating that the content has been ingested and scanned.\nIf the user did not provide a URL or policy text, politely request them to provide one.",
+            "tools": [],
+            "sub_agents": []
+          },
+          "data_spy": {
+            "agent_id": "data_spy",
+            "agent_type": "LlmAgent",
+            "description": "",
+            "instruction": "You are the Data Collection & Sharing ethics analyst for WeAreData.\nAnalyze the following policy text:\n---\n{policy_text}\n---\nCheck these matches of known dark/data patterns:\n{dark_patterns_found}\n\nAssess:\n- What data is collected (device identifiers, location, biometrics, contacts, etc.).\n- How it is collected (cookies, trackers, background sync, silent permissions).\n- Who it is shared or sold to (third-party advertisers, data brokers, business partners).\n\nDetermine a risk rating: RED (high risk / sells personal data / intrusive tracker), YELLOW (medium risk / opt-outs available but defaulted in), or GREEN (low risk / data minimization / clear options).\nProvide a brief justification under 3 sentences and suggest 2-3 realistic mitigations (e.g. settings, alternate tools).\nReturn the structured response matching the output schema.\n",
+            "tools": [],
+            "sub_agents": []
+          },
+          "consent_watch": {
+            "agent_id": "consent_watch",
+            "agent_type": "LlmAgent",
+            "description": "",
+            "instruction": "You are the Consent & Transparency analyst for WeAreData.\nAnalyze the following policy text:\n---\n{policy_text}\n---\nCheck these matches of known dark/data patterns:\n{dark_patterns_found}\n\nAssess:\n- Dark patterns (implied consent, pre-checked opt-ins, misdirection).\n- Transparency (buried settings, complex legal jargon, difficult cancellation).\n\nDetermine a risk rating: RED (severe dark patterns / roach motel opt-outs), YELLOW (opt-outs are buried or hard to find), or GREEN (clear, simple language / active opt-in).\nProvide a brief justification under 3 sentences and suggest 2-3 realistic mitigations.\nReturn the structured response matching the output schema.\n",
+            "tools": [],
+            "sub_agents": []
+          },
+          "youth_guard": {
+            "agent_id": "youth_guard",
+            "agent_type": "LlmAgent",
+            "description": "",
+            "instruction": "You are the Youth Safety analyst for WeAreData.\nAnalyze the following policy text:\n---\n{policy_text}\n---\n\nAssess:\n- Safety controls and features targeting children or minors.\n- COPPA compliance (verifiable parental consent, age gates).\n- Privacy protection of younger users.\n\nDetermine a risk rating: RED (explicitly targets minors without real verification / shares minor data), YELLOW (broad age gate but lacks parental verification checks), or GREEN (explicitly COPPA compliant / strong child data protections / no data sharing for minors).\nProvide a brief justification under 3 sentences and suggest 2-3 realistic mitigations.\nReturn the structured response matching the output schema.\n",
+            "tools": [],
+            "sub_agents": []
+          },
+          "bias_detect": {
+            "agent_id": "bias_detect",
+            "agent_type": "LlmAgent",
+            "description": "",
+            "instruction": "You are the Algorithmic Bias analyst for WeAreData.\nAnalyze the following policy text:\n---\n{policy_text}\n---\n\nAssess:\n- Profiling and targeting systems.\n- Risk of discriminatory content delivery or ad targeting.\n- Filter bubble amplification.\n\nDetermine a risk rating: RED (intrusive tracking-based profiling / discriminative exclusions), YELLOW (uses recommendation algorithm with some user controls), or GREEN (transparency in algorithms / allows disabling personalization / minimal profiling).\nProvide a brief justification under 3 sentences and suggest 2-3 realistic mitigations.\nReturn the structured response matching the output schema.\n",
+            "tools": [],
+            "sub_agents": []
+          },
+          "mind_guard": {
+            "agent_id": "mind_guard",
+            "agent_type": "LlmAgent",
+            "description": "",
+            "instruction": "You are the Mental Health Impact analyst for WeAreData.\nAnalyze the following policy text or service description:\n---\n{policy_text}\n---\nCheck these matches of known patterns:\n{dark_patterns_found}\n\nAssess:\n- Addictive design patterns (infinite scroll, continuous play, aggressive notifications).\n- Engagement maximization tactics.\n\nDetermine a risk rating: RED (infinite scroll / daily streaks / notifications designed to hook users), YELLOW (notifications and alerts used regularly but can be turned off), or GREEN (time-limit options / default screen-time caps / non-hooking design).\nProvide a brief justification under 3 sentences and suggest 2-3 realistic mitigations.\nReturn the structured response matching the output schema.\n",
+            "tools": [],
+            "sub_agents": []
+          },
+          "report_builder": {
+            "agent_id": "report_builder",
+            "agent_type": "LlmAgent",
+            "description": "",
+            "instruction": "You are the final report builder for WeAreData.\nCall the build_and_generate_report tool to compile the domain analysis results from the session state and output the final user report.\nYou must output ONLY the returned markdown report exactly as generated by the tool.",
+            "tools": [],
+            "sub_agents": []
+          }
+        },
+        "turns": [
+          {
+            "turn_index": 0,
+            "turn_id": "turn_0",
+            "events": [
+              {
+                "author": "input_processor",
+                "content": {
+                  "parts": [
+                    {
+                      "function_call": {
+                        "id": "adk-2548f427-fc74-4f6f-b992-1115e7dc003e",
+                        "args": {
+                          "input_text": "We do not track you, we do not store cookies, and we do not collect any personal data. You can delete your account instantly at any time. We do not use engagement loops."
+                        },
+                        "name": "fetch_and_store_policy"
+                      }
+                    }
+                  ],
+                  "role": "model"
+                }
+              },
+              {
+                "author": "input_processor",
+                "content": {
+                  "parts": [
+                    {
+                      "function_response": {
+                        "id": "adk-2548f427-fc74-4f6f-b992-1115e7dc003e",
+                        "name": "fetch_and_store_policy",
+                        "response": {
+                          "status": "success",
+                          "message": "Successfully stored and scanned pasted policy text."
+                        }
+                      }
+                    }
+                  ],
+                  "role": "user"
+                }
+              },
+              {
+                "author": "input_processor",
+                "content": {
+                  "parts": [
+                    {
+                      "text": "Thank you. The policy text has been successfully ingested and scanned."
+                    }
+                  ],
+                  "role": "model"
+                }
+              },
+              {
+                "author": "data_spy",
+                "content": {
+                  "parts": [
+                    {
+                      "text": "{\n  \"score\": \"GREEN\",\n  \"justification\": \"The policy explicitly commits to strict data minimization, stating they do not collect any personal data, store cookies, or track users. Furthermore, they allow for instant account deletion and avoid engagement loops, maximizing user control.\",\n  \"mitigations\": [\n    \"Verify these claims using network traffic tools or privacy-focused browsers to monitor for hidden trackers or cookies.\",\n    \"Check for third-party audits or open-source availability that can confirm the stated privacy practices.\",\n    \"Use a reliable VPN if connecting to this service to minimize the exposure of essential connection metadata like IP addresses.\"\n  ]\n}"
+                    }
+                  ],
+                  "role": "model"
+                }
+              },
+              {
+                "author": "consent_watch",
+                "content": {
+                  "parts": [
+                    {
+                      "text": "{\n  \"score\": \"GREEN\",\n  \"justification\": \"The policy explicitly commits to strict data minimization, stating they do not collect any personal data, store cookies, or track users. Furthermore, they ensure transparency and control by mentioning instant account deletion and explicitly avoiding engagement loops. This language minimizes risk and maximizes user control, meeting the highest standard of privacy communication.\",\n  \"mitigations\": [\n    \"Verify these claims using network traffic tools or privacy-focused browsers to monitor for hidden trackers or cookies.\",\n    \"Check for third-party audits or open-source availability that can confirm the stated privacy practices.\",\n    \"Use a reliable VPN if connecting to this service to minimize the exposure of essential connection metadata like IP addresses.\"\n  ]\n}"
+                    }
+                  ],
+                  "role": "model"
+                }
+              },
+              {
+                "author": "youth_guard",
+                "content": {
+                  "parts": [
+                    {
+                      "text": "{\n  \"score\": \"GREEN\",\n  \"justification\": \"The policy commits to strict data minimization, explicitly stating they do not collect personal data, store cookies, or track users. This zero-data approach provides the strongest possible privacy protection for all users, including minors, inherently complying with COPPA's spirit. Instant account deletion and avoiding engagement loops further enhance user control and safety.\",\n  \"mitigations\": [\n    \"Users should employ network monitoring tools or privacy extensions to independently verify the zero-tracking and zero-data collection claims.\",\n    \"The service should clearly define what data (if any) is collected for purely operational necessities (e.g., temporary IP logging) to ensure transparency.\",\n    \"If the service intends to attract a general audience, they should consider publishing third-party audit results to build greater trust around these strong privacy commitments.\"\n  ]\n}"
+                    }
+                  ],
+                  "role": "model"
+                }
+              },
+              {
+                "author": "bias_detect",
+                "content": {
+                  "parts": [
+                    {
+                      "text": "{\n  \"score\": \"GREEN\",\n  \"justification\": \"The policy explicitly commits to strict data minimization, stating they do not collect personal data, store cookies, or track users. Furthermore, avoiding engagement loops and allowing instant deletion minimizes risks associated with profiling and algorithmic manipulation.\",\n  \"mitigations\": [\n    \"Users should independently verify these claims using network traffic tools or privacy-focused browser extensions to detect hidden data transfers.\",\n    \"The organization should consider publishing third-party audit reports confirming the zero-tracking and zero-data collection claims to ensure trustworthiness.\",\n    \"Clearly define any necessary, temporary operational data (like anonymized server logs) that is collected to ensure absolute transparency regarding data handling.\"\n  ]\n}"
+                    }
+                  ],
+                  "role": "model"
+                }
+              },
+              {
+                "author": "mind_guard",
+                "content": {
+                  "parts": [
+                    {
+                      "text": "{\n  \"score\": \"GREEN\",\n  \"justification\": \"The service explicitly rejects a primary addictive design pattern by stating, \\\"We do not use engagement loops.\\\" Furthermore, the policy supports user autonomy through instant account deletion and zero personal data collection.\",\n  \"mitigations\": [\n    \"Users should observe the service's interface (e.g., check for infinite scroll, aggressive notifications, or highly personalized feeds) to verify the claim of 'no engagement loops.'\",\n    \"Seek confirmation from the service that this policy is verified by third-party audits or open-source code availability, given the strength of the privacy and design claims.\",\n    \"The service should clearly communicate what limited forms of functional notifications or alerts (if any) are used, ensuring they are not intrusive or designed to drive compulsive checking.\"\n  ]\n}"
+                    }
+                  ],
+                  "role": "model"
+                }
+              },
+              {
+                "author": "report_builder",
+                "content": {
+                  "parts": [
+                    {
+                      "function_call": {
+                        "id": "adk-2c6cf3ca-4ef0-4961-9b08-86a3d9dfd38a",
+                        "args": {},
+                        "name": "build_and_generate_report"
+                      }
+                    }
+                  ],
+                  "role": "model"
+                }
+              },
+              {
+                "author": "report_builder",
+                "content": {
+                  "parts": [
+                    {
+                      "function_response": {
+                        "id": "adk-2c6cf3ca-4ef0-4961-9b08-86a3d9dfd38a",
+                        "name": "build_and_generate_report",
+                        "response": {
+                          "result": "# WeAreData Ethical Tech Report: Submitted text\n\n## Overall Assessment: 🟢 LOW RISK PROFILE\n\n---\n### 🚦 Ethics Dashboard (Traffic-Light Scores)\nClick on any section to expand details and mitigations.\n\n#### [🟢 GREEN (Low/No Risk)] Data Collection & Sharing\n<details>\n<summary>🔍 Click to view analysis & mitigations</summary>\n\n**Justification:**  \nThe policy explicitly commits to strict data minimization, stating they do not collect any personal data, store cookies, or track users. Furthermore, they allow for instant account deletion and avoid engagement loops, maximizing user control.\n\n**Actionable Mitigations:**\n- Verify these claims using network traffic tools or privacy-focused browsers to monitor for hidden trackers or cookies.\n- Check for third-party audits or open-source availability that can confirm the stated privacy practices.\n- Use a reliable VPN if connecting to this service to minimize the exposure of essential connection metadata like IP addresses.\n</details>\n\n---\n#### [🟢 GREEN (Low/No Risk)] Consent & Transparency\n<details>\n<summary>🔍 Click to view analysis & mitigations</summary>\n\n**Justification:**  \nThe policy explicitly commits to strict data minimization, stating they do not collect any personal data, store cookies, or track users. Furthermore, they ensure transparency and control by mentioning instant account deletion and explicitly avoiding engagement loops. This language minimizes risk and maximizes user control, meeting the highest standard of privacy communication.\n\n**Actionable Mitigations:**\n- Verify these claims using network traffic tools or privacy-focused browsers to monitor for hidden trackers or cookies.\n- Check for third-party audits or open-source availability that can confirm the stated privacy practices.\n- Use a reliable VPN if connecting to this service to minimize the exposure of essential connection metadata like IP addresses.\n</details>\n\n---\n#### [🟢 GREEN (Low/No Risk)] Youth Safety (COPPA)\n<details>\n<summary>🔍 Click to view analysis & mitigations</summary>\n\n**Justification:**  \nThe policy commits to strict data minimization, explicitly stating they do not collect personal data, store cookies, or track users. This zero-data approach provides the strongest possible privacy protection for all users, including minors, inherently complying with COPPA's spirit. Instant account deletion and avoiding engagement loops further enhance user control and safety.\n\n**Actionable Mitigations:**\n- Users should employ network monitoring tools or privacy extensions to independently verify the zero-tracking and zero-data collection claims.\n- The service should clearly define what data (if any) is collected for purely operational necessities (e.g., temporary IP logging) to ensure transparency.\n- If the service intends to attract a general audience, they should consider publishing third-party audit results to build greater trust around these strong privacy commitments.\n</details>\n\n---\n#### [🟢 GREEN (Low/No Risk)] Algorithmic Bias\n<details>\n<summary>🔍 Click to view analysis & mitigations</summary>\n\n**Justification:**  \nThe policy explicitly commits to strict data minimization, stating they do not collect personal data, store cookies, or track users. Furthermore, avoiding engagement loops and allowing instant deletion minimizes risks associated with profiling and algorithmic manipulation.\n\n**Actionable Mitigations:**\n- Users should independently verify these claims using network traffic tools or privacy-focused browser extensions to detect hidden data transfers.\n- The organization should consider publishing third-party audit reports confirming the zero-tracking and zero-data collection claims to ensure trustworthiness.\n- Clearly define any necessary, temporary operational data (like anonymized server logs) that is collected to ensure absolute transparency regarding data handling.\n</details>\n\n---\n#### [🟢 GREEN (Low/No Risk)] Mental Health Impact\n<details>\n<summary>🔍 Click to view analysis & mitigations</summary>\n\n**Justification:**  \nThe service explicitly rejects a primary addictive design pattern by stating, \"We do not use engagement loops.\" Furthermore, the policy supports user autonomy through instant account deletion and zero personal data collection.\n\n**Actionable Mitigations:**\n- Users should observe the service's interface (e.g., check for infinite scroll, aggressive notifications, or highly personalized feeds) to verify the claim of 'no engagement loops.'\n- Seek confirmation from the service that this policy is verified by third-party audits or open-source code availability, given the strength of the privacy and design claims.\n- The service should clearly communicate what limited forms of functional notifications or alerts (if any) are used, ensuring they are not intrusive or designed to drive compulsive checking.\n</details>\n\n---\n\n*Disclaimer: This analysis is generated by AI agents using WeAreData ethics frameworks and public terms. It does not constitute legal counsel.*"
+                        }
+                      }
+                    }
+                  ],
+                  "role": "user"
+                }
+              },
+              {
+                "author": "report_builder",
+                "content": {
+                  "parts": [
+                    {
+                      "text": "# WeAreData Ethical Tech Report: Submitted text\n\n## Overall Assessment: 🟢 LOW RISK PROFILE\n\n---\n### 🚦 Ethics Dashboard (Traffic-Light Scores)\nClick on any section to expand details and mitigations.\n\n#### [🟢 GREEN (Low/No Risk)] Data Collection & Sharing\n<details>\n<summary>🔍 Click to view analysis & mitigations</summary>\n\n**Justification:**  \nThe policy explicitly commits to strict data minimization, stating they do not collect any personal data, store cookies, or track users. Furthermore, they allow for instant account deletion and avoid engagement loops, maximizing user control.\n\n**Actionable Mitigations:**\n- Verify these claims using network traffic tools or privacy-focused browsers to monitor for hidden trackers or cookies.\n- Check for third-party audits or open-source availability that can confirm the stated privacy practices.\n- Use a reliable VPN if connecting to this service to minimize the exposure of essential connection metadata like IP addresses.\n</details>\n\n---\n#### [🟢 GREEN (Low/No Risk)] Consent & Transparency\n<details>\n<summary>🔍 Click to view analysis & mitigations</summary>\n\n**Justification:**  \nThe policy explicitly commits to strict data minimization, stating they do not collect any personal data, store cookies, or track users. Furthermore, they ensure transparency and control by mentioning instant account deletion and explicitly avoiding engagement loops. This language minimizes risk and maximizes user control, meeting the highest standard of privacy communication.\n\n**Actionable Mitigations:**\n- Verify these claims using network traffic tools or privacy-focused browsers to monitor for hidden trackers or cookies.\n- Check for third-party audits or open-source availability that can confirm the stated privacy practices.\n- Use a reliable VPN if connecting to this service to minimize the exposure of essential connection metadata like IP addresses.\n</details>\n\n---\n#### [🟢 GREEN (Low/No Risk)] Youth Safety (COPPA)\n<details>\n<summary>🔍 Click to view analysis & mitigations</summary>\n\n**Justification:**  \nThe policy commits to strict data minimization, explicitly stating they do not collect personal data, store cookies, or track users. This zero-data approach provides the strongest possible privacy protection for all users, including minors, inherently complying with COPPA's spirit. Instant account deletion and avoiding engagement loops further enhance user control and safety.\n\n**Actionable Mitigations:**\n- Users should employ network monitoring tools or privacy extensions to independently verify the zero-tracking and zero-data collection claims.\n- The service should clearly define what data (if any) is collected for purely operational necessities (e.g., temporary IP logging) to ensure transparency.\n- If the service intends to attract a general audience, they should consider publishing third-party audit results to build greater trust around these strong privacy commitments.\n</details>\n\n---\n#### [🟢 GREEN (Low/No Risk)] Algorithmic Bias\n<details>\n<summary>🔍 Click to view analysis & mitigations</summary>\n\n**Justification:**  \nThe policy explicitly commits to strict data minimization, stating they do not collect personal data, store cookies, or track users. Furthermore, avoiding engagement loops and allowing instant deletion minimizes risks associated with profiling and algorithmic manipulation.\n\n**Actionable Mitigations:**\n- Users should independently verify these claims using network traffic tools or privacy-focused browser extensions to detect hidden data transfers.\n- The organization should consider publishing third-party audit reports confirming the zero-tracking and zero-data collection claims to ensure trustworthiness.\n- Clearly define any necessary, temporary operational data (like anonymized server logs) that is collected to ensure absolute transparency regarding data handling.\n</details>\n\n---\n#### [🟢 GREEN (Low/No Risk)] Mental Health Impact\n<details>\n<summary>🔍 Click to view analysis & mitigations</summary>\n\n**Justification:**  \nThe service explicitly rejects a primary addictive design pattern by stating, \"We do not use engagement loops.\" Furthermore, the policy supports user autonomy through instant account deletion and zero personal data collection.\n\n**Actionable Mitigations:**\n- Users should observe the service's interface (e.g., check for infinite scroll, aggressive notifications, or highly personalized feeds) to verify the claim of 'no engagement loops.'\n- Seek confirmation from the service that this policy is verified by third-party audits or open-source code availability, given the strength of the privacy and design claims.\n- The service should clearly communicate what limited forms of functional notifications or alerts (if any) are used, ensuring they are not intrusive or designed to drive compulsive checking.\n</details>\n\n---\n\n*Disclaimer: This analysis is generated by AI agents using WeAreData ethics frameworks and public terms. It does not constitute legal counsel.*"
+                    }
+                  ],
+                  "role": "model"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}
